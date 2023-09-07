@@ -1,0 +1,682 @@
+%%%%%%%%%%%%%%% LaTeX Compiler: XeLaTeX %%%%%%%%%%%%%%%
+
+% License for LaTeX Configuration File
+
+% This LaTeX configuration file is created by Lin, Xuanyu, HKUST, and is provided under the terms of the MIT License. You are free to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of this configuration file, subject to the following conditions:
+
+% 1. The above copyright notice and this license notice shall be included in all copies or substantial portions of the configuration file.
+
+% 2. The configuration file is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the authors or copyright holders be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the configuration file or the use or other dealings in the configuration file.
+
+% By using this configuration file, you agree to the terms and conditions of this license. If you do not agree to these terms and conditions, you must not use the configuration file.
+
+\documentclass[10pt]{article}
+% Text setting
+% \usepackage{newtxtext}
+\usepackage{setspace}
+\usepackage[dvipsnames,svgnames]{xcolor}
+\usepackage{comment}
+% Chinese characters setup
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\setCJKmainfont{SimSun}
+% Dealing with special characters
+\usepackage[utf8]{inputenc}
+% \usepackage[T1]{fontenc} % Conflict with fontspec & xeCJK
+\usepackage{pifont}
+% Mathematical formula typesetting
+\usepackage{unicode-math}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\setmathfont{Latin Modern Math}
+% \usepackage{amssymb} % Contained in package unicode-math
+% Jump (Math) \llbracket & \rrbracket
+\usepackage{stmaryrd}
+% Chemical formulas and equations
+\usepackage[version=4]{mhchem}
+% Graphics
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+\usepackage[export]{adjustbox}
+% Tables, enumeration
+\usepackage{multirow}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+% Adjust the position
+\usepackage{float}
+% Frames, reference
+\usepackage{framed}
+\usepackage[strict]{changepage}
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=blue,
+}
+% Page & paragraph settings
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\geometry{left=1.5cm, right=1.5cm, top=2cm, bottom=2cm}
+\usepackage{indentfirst}
+\setlength{\parindent}{2em}
+\setlength{\parskip}{0.5em}
+% Algorithm & coding environment
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage[framemethod=TikZ]{mdframed}
+\usepackage{listings}
+% New command
+\newcommand\course{PHYS 3031}  
+\newcommand\coursetitle{Mathematical Methods in Physics II}
+\newcommand\semester{Fall 2023}
+\renewcommand{\labelenumi}{\alph{enumi})}
+\newcommand{\Z}{\mathbb Z}
+\newcommand{\R}{\mathbb R}
+\newcommand{\Q}{\mathbb Q}
+\newcommand{\NN}{\mathbb N}
+\newcommand{\dd}{\mathrm{d}}
+\DeclareMathOperator{\Mod}{Mod}
+\renewcommand\lstlistingname{Algorithm}
+\renewcommand\lstlistlistingname{Algorithms}
+\def\lstlistingautorefname{Alg.}
+
+%%%%%%%%%%%%%%% Page Setup %%%%%%%%%%%%%%%
+
+\pagestyle{fancy}
+\headheight 35pt
+\lhead{\course\ \coursetitle\ \semester}
+\rhead{\includegraphics[width=2.5cm]{logo-hkust.png}}
+\lfoot{}
+\pagenumbering{arabic}
+\cfoot{}
+\rfoot{\small\thepage}
+\headsep 1.2em
+
+%%%%%%%%%%%%%%% Boxframe Setup %%%%%%%%%%%%%%%
+
+\definecolor{blueshade}{rgb}{0.95,0.95,1} % Horizontal Line: DarkBlue
+\definecolor{greenshade}{rgb}{0.90,0.99,0.91} % Horizontal Line: Green
+\definecolor{redshade}{rgb}{1.00,0.90,0.90}% Horizontal Line: LightCoral
+\definecolor{brownshade}{rgb}{0.99,0.97,0.93} % Horizontal Line: BurlyWood
+
+\newenvironment{formal}[2]{%
+	\def\FrameCommand{%
+		\hspace{1pt}%
+		{\color{#1}\vrule width 2pt}%
+		{\color{#2}\vrule width 4pt}%
+		\colorbox{#2}%
+	}%
+	\MakeFramed{\advance\hsize-\width\FrameRestore}%
+	\noindent\hspace{-4.55pt}% Disable indenting first paragraph
+	\begin{adjustwidth}{}{7pt}%
+		\vspace{2pt}\vspace{2pt}%
+	}
+	{%
+		\vspace{2pt}\end{adjustwidth}\endMakeFramed%
+}
+
+%%%%%%%%%%%%%%% Problem Environment Setup %%%%%%%%%%%%%%%
+
+\mdfdefinestyle{problemstyle}{
+	linecolor=black,linewidth=1pt,
+	frametitlerule=true,
+	frametitlebackgroundcolor=gray!20,
+	roundcorner=10pt,
+	innertopmargin=\topskip,
+	frametitlealignment=\hspace{0em},
+}
+
+\mdfsetup{skipabove=\topskip,skipbelow=\topskip}
+\mdtheorem[style=problemstyle]{Problem}{Problem}
+\newenvironment{Solution}{\textbf{Solution.}}
+
+%%%%%%%%%%%%%%% Coding Environment S6etup %%%%%%%%%%%%%%%
+
+\lstset{
+	basicstyle=\tt,
+	% Line number
+	numbers=left,
+	rulesepcolor=\color{red!20!green!20!blue!20},
+	escapeinside=``,
+	xleftmargin=2em,xrightmargin=2em, aboveskip=1em,
+	% Background frame
+	framexleftmargin=1.5mm,
+	frame=shadowbox,
+	% Background color
+	backgroundcolor=\color[RGB]{252,236,227},
+	% Style
+	keywordstyle=\color{blue}\bfseries,
+	identifierstyle=\bf,
+	numberstyle=\color[RGB]{0,192,192},
+	commentstyle=\it\color[RGB]{0,153,51},
+	stringstyle=\rmfamily\slshape\color[RGB]{128,0,0},
+	% Show space
+	showstringspaces=false
+}
+
+%%%%%%%%%%%%%%% Document Begins %%%%%%%%%%%%%%%
+
+\begin{document}
+	
+%%%%%%%%%%%%%%% Title Page %%%%%%%%%%%%%%%
+
+\begin{titlepage}
+	\begin{center}
+		\vspace*{3cm}
+		
+		\Huge
+		\hrulefill
+		\vspace{1cm}
+		
+		\huge
+		\textbf{PHYS 3031 Course Notes\\}
+		\vspace{1cm}
+		\textbf{Mathematical Methods in Physics II}
+		\vspace{1cm}
+		
+		\hrulefill
+		
+		\vspace{1.5cm}
+		\Large
+
+		\textbf{LIN, Xuanyu}
+		
+		\vfill
+		
+		$\mathscr{MATH\ METHODS\ IN\ PHYSICS}$
+		
+		\vspace{1cm}
+		
+		\course \ Mathematical Methods in Physics II
+		
+		\vspace{1cm}
+		
+		\includegraphics[width=0.4\textwidth]{logo-hkust.png}
+		\\
+		
+		\Large
+		
+		\today
+		
+	\end{center}
+\end{titlepage}
+
+%%%%%%%%%%%%%%% Article Begins %%%%%%%%%%%%%%%
+
+\begin{comment}
+
+\begin{abstract}
+	Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract
+\end{abstract}
+
+\tableofcontents
+
+\begin{center}
+	\section*{\LARGE Title}
+\end{center}
+
+\section{Section 1}
+
+This is a link to \href{https://www.google.com}{Google}.
+
+$$
+\vec{\nabla} \cdot \vec{E}=\frac{1}{\epsilon_{0}} \cdot \rho
+$$
+
+\begin{formal}{DarkBlue}{blueshade}
+	\textbf{Theorem 1.1} 这是一段中文。\hyperref[ref1]{[1]}
+	
+	$$
+	\vec{\nabla} \cdot \vec{E}=\frac{1}{\epsilon_{0}} \cdot \rho
+	$$
+	
+	\noindent This is an English sentence.
+\end{formal}
+
+
+\begin{center}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multirow{2}{*}{A} & B & C \\
+		\cline{2-3}
+		& D & E \\
+		\hline
+	\end{tabular}
+\end{center}
+
+\begin{algorithm}
+	\SetAlgoLined
+	\KwIn{$a, b$}
+	\KwOut{$c$}
+	$c = a + b$\;
+	\Return{$c$}\;
+	\caption{Addition}
+\end{algorithm}
+
+\begin{Problem}[Title]
+	
+	\lstset{language=Python}
+	\begin{lstlisting}[tabsize=4]
+print("Hello World!")
+	\end{lstlisting}
+
+\end{Problem}
+
+\begin{Solution}
+	
+	Text
+	
+\end{Solution}
+
+\newpage
+
+\end{comment}
+
+\section{Series}
+
+\subsection[Convergence Condition for Positive Series]{Convergence Condition for Positive Series $\sum\limits_{n=1}^{\infty} a_n$}
+
+Necessary condition: $\lim_{N\to \infty} a_N = 0$
+
+Hierarchy: $N! > a^N > N^b > \ln{N}$
+
+\begin{formal}{DarkGreen}{greenshade}
+	\textbf{Stirling's Formula} $\ln{N!} \approx N\ln{N}-N \approx N\ln{N}$
+\end{formal}
+
+\begin{formal}{DarkBlue}{blueshade}
+	\textbf{Comparison Test 1} $\sum a_n < \sum b_n$, $b$ converges $\to$ $a$ converges
+	
+	\noindent \textbf{Comparison Test 2 (Integral Test)} $\sum a_n \& \int a(n) \dd n$ share the same fate
+\end{formal}
+
+\begin{formal}{DarkBlue}{blueshade}
+	\textbf{Ratio Test}
+	$\lim_{n\to \infty} \frac{a_{n+1}}{a_n} = \rho$, $\rho > 1 \to \text{Diverges}$, $\rho < 1 \to \text{Converges}$
+\end{formal}
+
+\begin{formal}{DarkBlue}{blueshade}
+	\textbf{Extended (Special) Comparison Test}
+	$\lim_{n\to \infty} \frac{a_n}{b_n} = 1$, then $\sum a_n \& \sum b_n \dd n$ share the same fate
+\end{formal}
+
+\newpage
+
+\section*{Homework 1}
+
+\begin{Problem}
+	
+	Use the comparison test to prove the convergence of the following series:
+	
+	\noindent (a) $\sum_{n=1}^\infty \frac{1}{2^n+3^n}$
+	
+	\noindent (b) $\sum_{n=1}^\infty \frac{1}{n 2^n}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+(a) By considering the n-th term, we have
+
+$$
+\frac{1}{2^n+3^n} < \frac{1}{2^n+2^n} = \frac{1}{2^{n+1}}
+$$
+
+Since the series is positive and that
+
+$$
+\sum_{n=1}^\infty \frac{1}{2^{n+1}} = \frac{1}{2} < \infty,
+$$
+
+the original series converges.
+
+(b) Consider the n-th term, we have
+
+$$
+\frac{1}{n 2^n} < \frac{1}{2^n}
+$$
+
+for $n \geq 2$.
+
+Since the series is positive and that
+
+$$
+\sum_{n=1}^\infty \frac{1}{n 2^n} < \frac{1}{2} + \sum_{n=2}^\infty \frac{1}{2^n} = 1 < \infty,
+$$
+
+the original sequence converges.
+
+\newpage
+
+\begin{Problem}
+	
+	Test the following series for convergence using the comparison test:
+	
+	\noindent (a) $\sum_{n=1}^\infty \frac{1}{\sqrt{n}}$
+	
+	\noindent (b) $\sum_{n=2}^\infty \frac{1}{\ln{n}}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+(a) Consider the n-th term, we have
+
+$$
+\frac{1}{\sqrt{n}} > \frac{1}{n}
+$$
+
+for $n \geq 2$.
+
+Since
+
+$$
+\sum_{n=1}^\infty \frac{1}{\sqrt{n}} > 1 + \sum_{n=2}^\infty \frac{1}{n} \to \infty,
+$$
+
+the series diverges by the comparison test.
+
+(b) Since $\ln n < n$ for $\forall n \in \NN$,
+
+$$
+\sum_{n=2}^\infty \frac{1}{\ln{n}} > \sum_{n=2}^\infty \frac{1}{n} \to \infty
+$$
+
+Thus, the series diverges by the comparison test.
+
+\newpage
+
+\begin{Problem}
+	
+	Use the integral test to find whether the following series converge or diverge:
+	
+	\noindent (a) $\sum_{n=2}^\infty \frac{1}{n\ln{n}}$
+	
+	\noindent (b) $\sum_{n=1}^\infty \frac{e^n}{e^{2n}+9}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+(a) Consider the integral
+
+$$
+\int_2^\infty \frac{1}{x \ln x} \dd x = \int_{\ln 2}^\infty \frac{\dd \ln x}{\ln x} = \ln \ln x \big|_2^\infty \to \infty
+$$
+
+Thus, the original series diverges.
+
+(b) Consider the integral
+
+$$
+\int_2^\infty \frac{e^x}{e^{2x}+9} \dd x = \int_2^\infty \frac{1}{e^x+\frac{9}{e^x}} \dd x \geq \int_2^\infty \frac{1}{2e^x} = -\frac{1}{2} e^{-x} \big|_2^\infty = \frac{e^{-2}}{2} < \infty
+$$
+
+Thus, the original series converges.
+
+\newpage
+
+\begin{Problem}
+	
+	Use the ratio test to find whether the following series converge or diverge:
+	$\sum_{n=0}^\infty \frac{(n!)^3 e^{3n}}{(3n)!}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+The n-th term si given by
+
+$$
+a_n = \frac{(n!)^3 e^{3n}}{(3n)!}
+$$
+
+Thus,
+
+$$
+\frac{a_{n+1}}{a_n} = \frac{[(n+1)!]^3 e^{3(n+1)}}{[3(n+1)]!} \frac{(3n)!}{(n!)^3 e^{3n}} = \frac{(n+1)^3 \cdot e^3}{(3n+1)(3n+2)(3n+3)} = e^3 \cdot \frac{n^3+3n^2+3n+1}{27n^3+54n^2+33n+6}
+$$
+
+$$
+\lim_{n\to \infty} \frac{a_{n+1}}{a_n} = \lim_{n\to \infty} e^3 \cdot \frac{n^3+3n^2+3n+1}{27n^3+54n^2+33n+6} = \lim_{n\to \infty} e^3 \cdot \frac{1+\frac{3}{n}+\frac{3}{n^2}+\frac{1}{n^3}}{27+\frac{54}{n}+\frac{33}{n^2}+\frac{6}{n^3}} = \frac{e^3}{27} < 1
+$$
+
+Thus, the series converges by the ratio test.
+
+\newpage
+
+\begin{Problem}
+	
+	Use the special comparison test to find whether the following series converge or diverge:
+	
+	\noindent (a) $\sum_{n=9}^\infty \frac{(2n+1)(3n-5)}{\sqrt{n^2-73}}$
+	
+	\noindent (b) $\sum_{n=3}^\infty \frac{(n-\ln{n})^2}{5n^4-3n^2+1}$
+	
+	\noindent (c) $\sum_{n=1}^\infty \frac{\sqrt{n^3+5n-1}}{n^2-\sin n^3}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+(a)
+
+$$
+a_n = \frac{(2n+1)(3n-5)}{\sqrt{n^2-73}}
+$$
+
+Consider another sequence with $b_n = 6n$. Obviously, $\sum b_n$ diverges.
+
+$$
+\lim_{n \to \infty} \frac{a_n}{b_n} = \lim_{n \to \infty} \frac{(2n+1)(3n-5)}{6n \sqrt{n^2-73}} = \lim_{n \to \infty} \frac{6-\frac{7}{n}-\frac{5}{n^2}}{6 \sqrt{1-\frac{73}{n^2}}} = 1
+$$
+
+Thus, $\sum a_n$ also diverges.
+
+(b)
+
+$$
+a_n = \frac{(n-\ln{n})^2}{5n^4-3n^2+1}
+$$
+
+Consider another sequence with $b_n = \frac{1}{5n^2}$. Obviously, $\sum b_n$ converges.
+
+$$
+\lim_{n \to \infty} \frac{a_n}{b_n} = \lim_{n \to \infty} \frac{5n^2 (n-\ln{n})^2}{5n^4-3n^2+1} = \lim_{n \to \infty} \frac{(1-\frac{\ln n}{n})^2}{1-\frac{3}{5n^2}+\frac{1}{5n^4}} = 1
+$$
+
+Thus, $\sum a_n$ also converges.
+
+(c)
+
+$$
+a_n = \frac{\sqrt{n^3+5n-1}}{n^2-\sin n^3}
+$$
+
+Consider another sequence with $b_n = \frac{1}{n^{\frac{1}{2}}}$. Then $\sum b_n$ diverges from the previous problem.
+
+$$
+\lim_{n \to \infty} \frac{a_n}{b_n} = \lim_{n \to \infty} \frac{\sqrt{n^4+5n^2-n}}{n^2-\sin n^3} = \lim_{n \to \infty} \frac{\sqrt{1+\frac{5}{n^2}-\frac{1}{n^3}}}{1-\frac{\sin n^3}{n^2}} = 1
+$$
+
+as
+
+$$
+0 = \lim_{n \to \infty} -\frac{1}{n^2} \leq \lim_{n \to \infty} \frac{\sin n^3}{n^2} \leq \lim_{n \to \infty} \frac{1}{n^2} = 0
+$$
+
+Thus, $\sum a_n$ also diverges.
+
+\newpage
+
+\begin{Problem}
+	
+	Test the following series for convergence:
+	
+	\noindent (a) $\sum_{n=1}^\infty \frac{(-1)^n}{\sqrt{n}}$
+	
+	\noindent (b) $\sum_{n=1}^\infty \frac{(-2)^n}{n^2}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+(a) Since
+
+$$
+\frac{|a_{n+1}|}{|a_n|} = \frac{\sqrt{n}}{\sqrt{n+1}} < 1
+$$
+
+and
+
+$$
+\lim_{n \to \infty} a_n = \lim_{n \to \infty} \frac{(-1)^n}{\sqrt{n}} = 0
+$$
+
+Thus, the original series converges.
+
+(b)
+
+$$
+\lim_{n \to \infty} \frac{a_{n+1}}{a_n} = \lim_{n \to \infty} -\frac{2n^2}{(n+1)^2} = \lim_{n \to \infty} -\frac{2}{(\frac{n+1}{n})^2} = -2
+$$
+
+Thus, the original series diverges.
+
+\newpage
+
+\section*{Homework 2}
+
+\begin{Problem}
+	
+	Find the interval of convergence of the following power series; be sure to investigate the endpoints of the interval: $\sum_{n=1}^\infty \frac{(-1)^n (x+1)^n}{n}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	The following series are not power series, but you can transform each one into a power
+	series by a change of variable and so find out where it converges:
+	
+	\noindent (a) $\sum_{n=2}^\infty \frac{(-1)^n x^{n/2}}{n \ln n}$
+	
+	\noindent (b) $\sum_{n=0}^\infty (\sqrt{x^2+1})^n \frac{2^n}{3^n+n^3}$
+	
+	\noindent (c) $\sum_{n=0}^\infty (\sin x)^n (-1)^n 2^n$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+(a)
+
+(b)
+
+(c)
+
+\newpage
+
+\begin{Problem}
+	
+	Find the first few terms of the Maclaurin series for the following functions and check your results by computer: $\frac{e^x}{1-x}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Show that $\ln (1−x) = −x$ with an error less than 0.0056 for $|x| < 0.1$.
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Show that $2/\sqrt{4-x} = 1+\frac{1}{8}x$ with an error less than $\frac{1}{32}$ for $0<x<1$.
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Use power series to evaluate the function at the given point. Compare with computer results, using the computer to find the series, and also to do the problem without series. Resolve any disagreement in results: $e^{\arcsin{x}} + \ln (\frac{1-x}{e})$ at $x = 0.0003$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Use Maclaurin series to evaluate each of the following. Although you could do them by
+	computer, you can probably do them in your head faster than you can type them into the
+	computer. So use these to practice quick and skillful use of basic series to make simple
+	calculations: $\frac{\dd^3}{\dd x^3} (\frac{x^2 e^x}{1-x})$ at $x = 0$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Find the sum of the following series by recognizing it as the Maclaurin series for a function evaluated at a point: $\sum_{n=1}^\infty \frac{1}{n 2^n}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Evaluate the following indeterminate forms by using L’Hopital’s rule and check your
+	results by computer. (Note that Maclaurin series would not be useful here because
+	x does not tend to zero, or because a function (ln x, for example) is not expandable in a Maclaurin series.): $\lim_{x \to \pi} \frac{x \sin x}{x-\pi}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\section*{Homework 3}
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{comment}
+
+\section{References}
+
+\label{ref1}
+
+[1] Google \href{https://www.google.com}{https://www.google.com}
+
+\end{comment}
+
+\end{document}
