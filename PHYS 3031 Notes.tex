@@ -71,7 +71,7 @@
 \newcommand\course{PHYS 3031}  
 \newcommand\coursetitle{Mathematical Methods in Physics II}
 \newcommand\semester{Fall 2023}
-\renewcommand{\labelenumi}{\alph{enumi})}
+\renewcommand{\labelenumi}{\alph{enumi}}
 \newcommand{\Z}{\mathbb Z}
 \newcommand{\R}{\mathbb R}
 \newcommand{\Q}{\mathbb Q}
@@ -282,25 +282,37 @@ Necessary condition: $\lim_{N\to \infty} a_N = 0$
 
 Hierarchy: $N! > a^N > N^b > \ln{N}$
 
-\begin{formal}{DarkGreen}{greenshade}
+\begin{formal}{DarkBlue}{blueshade}
 	\textbf{Stirling's Formula} $\ln{N!} \approx N\ln{N}-N \approx N\ln{N}$
 \end{formal}
 
-\begin{formal}{DarkBlue}{blueshade}
-	\textbf{Comparison Test 1} $\sum a_n < \sum b_n$, $b$ converges $\to$ $a$ converges
-	
-	\noindent \textbf{Comparison Test 2 (Integral Test)} $\sum a_n \& \int a(n) \dd n$ share the same fate
-\end{formal}
+\textbf{Comparison Test 1} $\sum a_n < \sum b_n$, $b$ converges $\to$ $a$ converges
 
-\begin{formal}{DarkBlue}{blueshade}
-	\textbf{Ratio Test}
+\textbf{Comparison Test 2 (Integral Test)} $\sum a_n \& \int a(n) \dd n$ share the same fate
+
+\textbf{Ratio Test}
 	$\lim_{n\to \infty} \frac{a_{n+1}}{a_n} = \rho$, $\rho > 1 \to \text{Diverges}$, $\rho < 1 \to \text{Converges}$
-\end{formal}
 
-\begin{formal}{DarkBlue}{blueshade}
-	\textbf{Extended (Special) Comparison Test}
-	$\lim_{n\to \infty} \frac{a_n}{b_n} = 1$, then $\sum a_n \& \sum b_n \dd n$ share the same fate
-\end{formal}
+\textbf{Extended (Special) Comparison Test}
+$\lim_{n\to \infty} \frac{a_n}{b_n} = 1$, then $\sum a_n \& \sum b_n \dd n$ share the same fate
+
+\subsection[Convergence Condition for Alternating Series]{Convergence Condition for Alternating Series $\sum\limits_{n=1}^{\infty} (-1)^n a_n$}
+
+$\bullet \text{ If } a_n>0, \lim_{n\to\infty} a_n = 0$, this series could diverge.
+
+\begin{enumerate}[label=(\arabic*)]
+	\item Absolute Convergence:
+	If $\sum a_n$ converges, then $\sum (-1)^n a_n$ converges.
+	\item Convergence Condition: $\lim_{n\to\infty} \text{ and } a_n > a_{n+1}$.
+	\item Diverge: If $a_n < a_{n+1}$, then the series diverges.
+\end{enumerate}
+
+\subsection[Power Series]{Power Series $\sum_{n=0}^\infty a_n (x-x_0)^n \rightarrow f(x)$}
+
+Convergent condition for $x$:
+$\lim_{n\to\infty} \big| \frac{a_{n+1}}{a_n} (x-x_0) \big| < 1$
+
+\section{Taylor Expansion}
 
 \newpage
 
@@ -557,6 +569,36 @@ Thus, the original series diverges.
 
 \textbf{Solution.}
 
+$$
+a_n = \frac{(-1)^n (x+1)^n}{n} \implies \rho_n = \big| \frac{a_{n+1}}{a_n} \big| = \big| \frac{(-1)^{n+1} (x+1)^{n+1}}{n+1} \frac{n}{(-1)^n (x+1)^n} \big| = \frac{n}{n+1}\big|x+1\big|
+$$
+
+Thus,
+
+$$
+\rho = \lim_{n\to\infty} \rho_n = \big|x+1\big|
+$$
+
+For the interval of convergence, we have
+
+$$
+\rho < 1 \implies \big|x+1\big| < 1 \implies x \in (-2, 0)
+$$
+
+When $x = -2$,
+
+$$
+\sum_{n=1}^\infty \frac{(-1)^n (x+1)^n}{n} = \sum_{n=1}^\infty \frac{1}{n} \text{  Diverges}
+$$
+
+When $x = 0$,
+
+$$
+\sum_{n=1}^\infty \frac{(-1)^n (x+1)^n}{n} = \sum_{n=1}^\infty \frac{(-1)^n}{n} \text{  Converges}
+$$
+
+Thus, the interval of convergence is $\left(-2,0\right]$.
+
 \newpage
 
 \begin{Problem}
@@ -574,7 +616,27 @@ Thus, the original series diverges.
 
 \textbf{Solution.}
 
-(a)
+(a) Let $y = x^{1/2}$, then $a_n = \frac{(-1)^n y^n}{n \ln n}$
+
+$$
+\rho = \lim_{n\to\infty} \big| \frac{a_{n+1}}{a_n} \big| = \lim_{n\to\infty} \big| \frac{(-1)^{n+1} y^{n+1}}{(n+1) \ln (n+1)} \frac{n \ln n}{(-1)^n y^n} \big| = \lim_{n\to\infty} \frac{n \ln n}{(n+1) \ln (n+1)} \big| y \big| = \lim_{n\to\infty} \frac{\ln n + 1}{\ln (n+1) + 1} \big| y \big| = \big| y \big|
+$$
+
+For the interval of convergence, we have
+
+$$
+\rho < 1 \implies \big|y\big| < 1 \implies y \in (-1, 1) \implies x \in \left[0, 1\right)
+$$
+
+When $x = 1$,
+
+$$
+\sum_{n=2}^\infty \frac{(-1)^n x^{n/2}}{n \ln n} = \sum_{n=2}^\infty \frac{(-1)^n}{n \ln n}
+$$
+
+It converges since it's an alternating series with $\big| a_n \big| > \big| a_{n+1} \big|$.
+
+Thus, the interval of convergence is $[0,1]$.
 
 (b)
 
@@ -675,7 +737,7 @@ Thus, the original series diverges.
 
 \label{ref1}
 
-[1] Google \href{https://www.google.com}{https://www.google.com}1
+[1] Google \href{https://www.google.com}{https://www.google.com}
 
 \end{comment}
 
