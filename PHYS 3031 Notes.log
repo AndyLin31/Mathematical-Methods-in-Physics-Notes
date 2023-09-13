@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  11 SEP 2023 21:06
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  13 SEP 2023 14:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1470,76 +1470,79 @@ File: ./images//logo-hkust.png Graphic file (type bmp)
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [2]
-Package mdframed Info: Not enough space on this page on input line 377.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [3]
-Package mdframed Info: Not enough space on this page on input line 415.
+Package mdframed Info: Not enough space on this page on input line 423.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [4]
-Package mdframed Info: Not enough space on this page on input line 442.
+Package mdframed Info: Not enough space on this page on input line 461.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [5]
-Package mdframed Info: Not enough space on this page on input line 476.
+Package mdframed Info: Not enough space on this page on input line 488.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [6]
-Package mdframed Info: Not enough space on this page on input line 538.
+Package mdframed Info: Not enough space on this page on input line 522.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [7]
+Package mdframed Info: Not enough space on this page on input line 584.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [8]
-Package mdframed Info: Not enough space on this page on input line 619.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [9]
-Package mdframed Info: Not enough space on this page on input line 683.
+Package mdframed Info: Not enough space on this page on input line 665.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [10]
-Package mdframed Info: Not enough space on this page on input line 705.
+Package mdframed Info: Not enough space on this page on input line 729.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [11]
-Package mdframed Info: Not enough space on this page on input line 725.
+Package mdframed Info: Not enough space on this page on input line 751.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
 
 [12]
-Package mdframed Info: Not enough space on this page on input line 735.
+Package mdframed Info: Not enough space on this page on input line 771.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [13]
-Package mdframed Info: Not enough space on this page on input line 748.
+Package mdframed Info: Not enough space on this page on input line 788.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [14]
-Package mdframed Info: Not enough space on this page on input line 758.
+Package mdframed Info: Not enough space on this page on input line 801.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [15]
-Package mdframed Info: Not enough space on this page on input line 770.
+Package mdframed Info: Not enough space on this page on input line 811.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [16]
+Package mdframed Info: Not enough space on this page on input line 823.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
- [17] Excluding 'comment' comment.
+ [17]
+File: ./images//logo-hkust.png Graphic file (type bmp)
+<./images//logo-hkust.png>
+ [18] Excluding 'comment' comment.
 (./PHYS 3031 Notes.aux)
 Package rerunfilecheck Info: File `"PHYS 3031 Notes".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 35976 strings out of 476179
- 716836 string characters out of 5813072
+ 35978 strings out of 476179
+ 716863 string characters out of 5813072
  1189403 words of memory out of 5000000
- 56118 multiletter control sequences out of 15000+600000
+ 56120 multiletter control sequences out of 15000+600000
  479534 words of font info for 108 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  109i,12n,118p,519b,1058s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on PHYS 3031 Notes.pdf (18 pages).
+Output written on PHYS 3031 Notes.pdf (19 pages).

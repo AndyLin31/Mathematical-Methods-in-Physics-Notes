@@ -312,11 +312,57 @@ $\bullet \text{ If } a_n>0, \lim_{n\to\infty} a_n = 0$, this series could diverg
 Convergent condition for $x$:
 $\lim_{n\to\infty} \big| \frac{a_{n+1}}{a_n} (x-x_0) \big| < 1$
 
-\section{Taylor Expansion ()}
+\section[Taylor Expansion]{Taylor Expansion $\sum_{n=0}^\infty a_n (x-x_0)^n$}
 
 $\sin x = \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!} x^{2n+1}\ \ \ \ \ \cos x = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n}\ \ \ \ \ \tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \frac{17x^7}{315} + ...\ \ \ \ \ e^{x} = \sum_{n=0}^\infty \frac{x^n}{n!}$
 
 $\arctan x = \int_0^x \sum_{n=0}^\infty (-t^2)^n \dd t = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1} \text{, where } |x| < 1$
+
+\subsection{Leibniz Rule}
+
+$$
+\frac{\dd^{(M)}}{\dd x^M} (u\cdot v) = \bigg(\frac{\dd u}{\dd x}\frac{\partial}{\partial u} + \frac{\dd v}{\dd x}\frac{\partial}{\partial v}\bigg) (u\cdot v) = \sum_{n=0}^M C_M^n \bigg(\frac{\dd^{(M-n)} u}{\dd x^{(M-n)}}\bigg) \bigg(\frac{\dd^{(n)} v}{\dd x^n}\bigg)
+$$
+
+\newpage
+
+\subsection{Error Estimation when N Terms are Kept}
+
+$$
+f(x) \approx \sum_{n=0}^N (-1)^n a_n (x-x_0)^n\ \ \ \ \ b_n \equiv a_n(x-x_0)^n > 0
+$$
+
+\subsubsection[Alternating Series]{Alternating Series $S = \sum_{n=0}^\infty (-1)^n b_n$}
+
+Maximum possible error for $f(x)$ is
+
+$$
+b_{N+1} = a_{N+1} \big| x-x_0 \big|^{N+1}
+$$
+
+\subsubsection["Positive" Series]{"Positive" Series $S = \sum_{n=0}^\infty a_n (x-x_0)^n, a_n (x-x_0)^n > 0$}
+
+If it converges when $\big|x-x_0\big| < 1$, and $\big|a_{n+1}\big| < \big|a_n\big|$, then
+
+$$
+S - S_N < \frac{\big|a_{N+1}\big| \big|x-x_0\big|^{N+1}}{1-\big|x-x_0\big|}
+$$
+
+Note: In practice, Taylor Expansion is useful when $\big|x-x_0\big| << 1$, and an upper limit of error $\epsilon$ to be tolerated is given, even if the series converges for any value of $(x-x_0)$.
+
+\section{L'Ĥopital's Rule}
+
+Theorem 1:
+$
+\lim_{x\to x_0} \frac{f(x)}{g(x)} \overset{f(x_0)=0}{\underset{g(x_0)=0}\longrightarrow} \frac{0}{0}  \implies \lim_{x\to x_0} \frac{f(x)}{g(x)} \longrightarrow \frac{f'(x)}{g'(x)}
+$
+
+Theorem 2:
+$
+\lim_{x\to x_0} \frac{f(x)}{g(x)} \overset{f(x_0)=0}{\underset{g(x_0)=0}\longrightarrow} \frac{\infty}{\infty}  \implies \lim_{x\to x_0} \frac{f(x)}{g(x)} \longrightarrow \frac{f'(x)}{g'(x)} \text{(proved by the inverse of the fraction)}
+$
+
+
 
 \newpage
 
