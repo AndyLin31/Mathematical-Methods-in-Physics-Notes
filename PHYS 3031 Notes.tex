@@ -282,9 +282,7 @@ Necessary condition: $\lim_{N\to \infty} a_N = 0$
 
 Hierarchy: $N! > a^N > N^b > \ln{N}$
 
-\begin{formal}{DarkBlue}{blueshade}
-	\textbf{Stirling's Formula} $\ln{N!} \approx N\ln{N}-N \approx N\ln{N}$
-\end{formal}
+\textbf{Stirling's Formula} $\ln{N!} \approx N\ln{N}-N \approx N\ln{N}$
 
 \textbf{Comparison Test 1} $\sum a_n < \sum b_n$, $b$ converges $\to$ $a$ converges
 
@@ -294,17 +292,17 @@ Hierarchy: $N! > a^N > N^b > \ln{N}$
 	$\lim_{n\to \infty} \frac{a_{n+1}}{a_n} = \rho$, $\rho > 1 \to \text{Diverges}$, $\rho < 1 \to \text{Converges}$
 
 \textbf{Extended (Special) Comparison Test}
-$\lim_{n\to \infty} \frac{a_n}{b_n} = 1$, then $\sum a_n \& \sum b_n \dd n$ share the same fate
+$\lim_{n\to \infty} \frac{a_n}{b_n} = 1$, then $\sum a_n \& \sum b_n$ share the same fate
 
 \subsection[Convergence Condition for Alternating Series]{Convergence Condition for Alternating Series $\sum\limits_{n=1}^{\infty} (-1)^n a_n$}
 
-$\bullet \text{ If } a_n>0, \lim_{n\to\infty} a_n = 0$, this series could diverge.
+$\bullet \text{ If } a_n>0, \lim_{n\to\infty} a_n = 0$, this series may diverge
 
 \begin{enumerate}[label=(\arabic*)]
 	\item Absolute Convergence:
-	If $\sum a_n$ converges, then $\sum (-1)^n a_n$ converges.
-	\item Convergence Condition: $\lim_{n\to\infty} \text{ and } a_n > a_{n+1}$.
-	\item Diverge: If $a_n < a_{n+1}$, then the series diverges.
+	If $\sum a_n$ converges, then $\sum (-1)^n a_n$ converges
+	\item Convergence Condition: $\lim_{n\to\infty} \text{ and } a_n > a_{n+1}$
+	\item Diverge: If $a_n < a_{n+1}$, then the series diverges
 \end{enumerate}
 
 \subsection[Power Series]{Power Series $\sum_{n=0}^\infty a_n (x-x_0)^n \rightarrow f(x)$}
@@ -323,8 +321,6 @@ $\arctan x = \int_0^x \sum_{n=0}^\infty (-t^2)^n \dd t = \sum_{n=0}^\infty \frac
 $$
 \frac{\dd^{(M)}}{\dd x^M} (u\cdot v) = \bigg(\frac{\dd u}{\dd x}\frac{\partial}{\partial u} + \frac{\dd v}{\dd x}\frac{\partial}{\partial v}\bigg) (u\cdot v) = \sum_{n=0}^M C_M^n \bigg(\frac{\dd^{(M-n)} u}{\dd x^{(M-n)}}\bigg) \bigg(\frac{\dd^{(n)} v}{\dd x^n}\bigg)
 $$
-
-\newpage
 
 \subsection{Error Estimation when N Terms are Kept}
 
@@ -350,7 +346,7 @@ $$
 
 Note: In practice, Taylor Expansion is useful when $\big|x-x_0\big| << 1$, and an upper limit of error $\epsilon$ to be tolerated is given, even if the series converges for any value of $(x-x_0)$.
 
-\section{L'Ĥopital's Rule}
+\subsection{L'Ĥopital's Rule}
 
 Theorem 1:
 $
@@ -361,6 +357,13 @@ Theorem 2:
 $
 \lim_{x\to x_0} \frac{f(x)}{g(x)} \overset{f(x_0)=0}{\underset{g(x_0)=0}\longrightarrow} \frac{\infty}{\infty}  \implies \lim_{x\to x_0} \frac{f(x)}{g(x)} \longrightarrow \frac{f'(x)}{g'(x)} \text{(proved by the inverse of the fraction)}
 $
+
+\newpage
+
+\section{Complex Analysis}
+
+
+
 
 
 
@@ -802,6 +805,16 @@ $$
 
 \textbf{Solution.}
 
+$$
+\frac{x^2 e^x}{1-x} = x^2 \cdot (1 + x + \frac{x^2}{2} + \frac{x^3}{6} + \dots) \cdot (1 + x + x^2 + x^3 + \dots) = x^2 + 2x^3 + \frac{5}{2} x^4 + \cdots
+$$
+
+Thus,
+
+$$
+\frac{\dd^3}{\dd x^3} (\frac{x^2 e^x}{1-x}) \bigg|_{x=0} = \frac{\dd^3}{\dd x^3} (x^2 + 2x^3 + \frac{5}{2} x^4 + \cdots) \bigg|_{x=0} = 12
+$$
+
 \newpage
 
 \begin{Problem}
@@ -812,17 +825,41 @@ $$
 
 \textbf{Solution.}
 
+Maclaurin series:
+
+$$
+f(x) = \sum_{n=0}^\infty \frac{f^{(n)}(0)}{n!} x^n
+$$
+
+Consider the function:
+
+$$
+f(x) = \log x =
+$$
+
+By comparison:
+
+$$
+f^{(n)}(0) = \frac{(n-1)!}{2^n}
+$$
+
 \newpage
 
 \begin{Problem}
 	
-	Evaluate the following indeterminate forms by using L’Hopital’s rule and check your
+	Evaluate the following indeterminate forms by using L'Hopital's rule and check your
 	results by computer. (Note that Maclaurin series would not be useful here because
 	x does not tend to zero, or because a function (ln x, for example) is not expandable in a Maclaurin series.): $\lim_{x \to \pi} \frac{x \sin x}{x-\pi}$
 	
 \end{Problem}
 
 \textbf{Solution.}
+
+By L'Hopital's Rule,
+
+$$
+\lim_{x \to \pi} \frac{x \sin x}{x-\pi} = \frac{\sin x + x \cos x}{1} \bigg|_{x=\pi} = -\pi
+$$
 
 \newpage
 
