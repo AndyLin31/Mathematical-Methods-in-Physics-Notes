@@ -296,14 +296,12 @@ $\lim_{n\to \infty} \frac{a_n}{b_n} = 1$, then $\sum a_n \& \sum b_n$ share the 
 
 \subsection[Convergence Condition for Alternating Series]{Convergence Condition for Alternating Series $\sum\limits_{n=1}^{\infty} (-1)^n a_n$}
 
-$\bullet \text{ If } a_n>0, \lim_{n\to\infty} a_n = 0$, this series may diverge
+If $a_n>0, \lim_{n\to\infty} a_n = 0$, this series may diverge.
 
-\begin{enumerate}[label=(\arabic*)]
-	\item Absolute Convergence:
-	If $\sum a_n$ converges, then $\sum (-1)^n a_n$ converges
-	\item Convergence Condition: $\lim_{n\to\infty} \text{ and } a_n > a_{n+1}$
-	\item Diverge: If $a_n < a_{n+1}$, then the series diverges
-\end{enumerate}
+(1) Absolute Convergence:
+If $\sum a_n$ converges, then $\sum (-1)^n a_n$ converges
+(2) Convergence Condition: $\lim_{n\to\infty} \text{ and } a_n > a_{n+1}$
+(3) Diverge: If $a_n < a_{n+1}$, then the series diverges
 
 \subsection[Power Series]{Power Series $\sum_{n=0}^\infty a_n (x-x_0)^n \rightarrow f(x)$}
 
@@ -358,14 +356,39 @@ $
 \lim_{x\to x_0} \frac{f(x)}{g(x)} \overset{f(x_0)=0}{\underset{g(x_0)=0}\longrightarrow} \frac{\infty}{\infty}  \implies \lim_{x\to x_0} \frac{f(x)}{g(x)} \longrightarrow \frac{f'(x)}{g'(x)} \text{(proved by the inverse of the fraction)}
 $
 
-\newpage
-
 \section{Complex Analysis}
 
+Convergence of the Complex Series $\sum^\infty c_n = \sum^\infty a_n + i\sum^\infty b_n \implies a_n \text{and } b_n$ both converges.
+
+Complex Power Series $\sum^\infty c_n z^n = f(z)$ with convergence region $\lim_{n\to\infty} \big|\frac{c_{n+1}}{c_n} z\big| < 1$.
+
+Euler's Formula: $e^z = \cos z + i\sin z$ help solving the inverse trigonometric functions.
+
+\subsection[Complex Functions]{Complex Functions $f(z) = f(x + iy) = u(x, y) + iv(x, y)$}
+
+\subsubsection*{Analytic Function}
+
+Property: $f'(z) = \lim_{\delta z \to 0} \frac{f(z_\delta z) - f(z)}{\delta z}$ is unique regardless how $\delta z \to 0$.
+
+Sufficient Conditions: Cauchy-Riemann Conditions: $\partial_x u = \partial_y v,\quad \partial_y u = -\partial_x v$
+
+Cauchy-Riemann Conditions in Polar Form: $\partial_\theta u = -\rho \partial_\rho v, \quad \partial_\theta v = \rho \partial_\rho u$
+
+\subsection{Line Integrals}
+
+With the substitution of line $c: y = g(x)$, $\dd y = g'(x)\dd x$
+$$
+\lim_{\delta z_n\to 0} \sum_{z_n\in c} f(z_n) \Delta z_n = \int_c f(z)\dd z = \int_c f(x+iy)(\dd x + i\dd y) = \int_a^b f(x+ig(x))(1+ig'(x))\dd x \implies \int_c f(z)\dd z = -\int_{-c} f(z)\dd z
+$$
+
+\textbf{Cauchy's Theorem for Analytic Functions:} $\oint_C f(z) \dd z = 0$
+
+\textbf{Cauchy's Integral Formula:} $f(z)$ is analytic inside and on the contour $\implies f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)\dd z}{z-z_0}$
 
 
 
 
+% \begin{comment}
 
 \newpage
 
@@ -778,7 +801,13 @@ $$
 According to the Taylor Series,
 
 $$
-\frac{2}{\sqrt{4-x}} = 
+\frac{2}{\sqrt{4-x}} = 1 + \frac{x}{8} + \frac{3x^2}{128} + \frac{5x^3}{1024} + \cdots
+$$
+
+Error:
+
+$$
+S - S_N < \frac{\big|a_{N+1}\big| \big|x-x_0\big|^{N+1}}{1-\big|x-x_0\big|} = \frac{\big|a_2\big| \big|x\big|^2}{1-\big|x\big|} = \frac{3x^2}{128(1-x)} < \frac{3}{128} < \frac{1}{32}
 $$
 
 
@@ -791,6 +820,17 @@ $$
 \end{Problem}
 
 \textbf{Solution.}
+
+According to Taylor Series at $x=0$,
+
+$$
+\begin{aligned}
+	e^{\arcsin{x}} + \ln (\frac{1-x}{e}) &\approx e^{x+\frac{x^3}{6}} - (1 + x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + \cdots)\\
+	&\approx [1 + x + \frac{x^3}{6} + \frac{1}{2} (x + \frac{x^3}{6})^2 + \frac{1}{6} (x + \frac{x^3}{6})^3 + \cdots] - [1 + x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4} + \cdots]\\
+	&\approx [1 + x + \frac{1}{2} x^2 + \frac{1}{3} x^3 + \frac{5}{24} x^4] - [1 + x + \frac{x^2}{2} + \frac{x^3}{3} + \frac{x^4}{4}]\\
+	&= -\frac{1}{24} x^4 = -\frac{1}{24} (3\times 10^{-4})^4 \approx 3\times 10^{-16}
+\end{aligned}
+$$
 
 \newpage
 
@@ -834,13 +874,17 @@ $$
 Consider the function:
 
 $$
-f(x) = \log x =
+f(x) = \log (1+x) = \sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} x^n
 $$
 
-By comparison:
+When $x = -\frac{1}{2}$, we have
 
 $$
-f^{(n)}(0) = \frac{(n-1)!}{2^n}
+\sum_{n=1}^\infty \frac{(-1)^{n-1}}{n} (-\frac{1}{2})^n = -\sum_{n=1}^\infty \frac{1}{n 2^n} = \log(1-\frac{1}{2}) = -\log 2
+$$
+
+$$
+\implies \sum_{n=1}^\infty \frac{1}{n 2^n} = \log 2
 $$
 
 \newpage
@@ -867,6 +911,28 @@ $$
 
 \begin{Problem}
 	
+	Test each of the following series for convergence:
+	
+	\noindent (a) $\sum e^{in\pi/6}$
+	
+	\noindent (b) $\sum \frac{i^n}{n}$
+	
+	\noindent (c) $\sum \big(\frac{1+i}{1-i\sqrt{3}}\big)^n$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+(a)
+
+(b)
+
+(c)
+
+\newpage
+
+\begin{Problem}
+	
 	
 	
 \end{Problem}
@@ -875,14 +941,34 @@ $$
 
 \newpage
 
-\begin{comment}
+\begin{Problem}
+	
+	
+	
+\end{Problem}
 
-\section{References}
+\textbf{Solution.}
 
-\label{ref1}
+\newpage
 
-[1] Google \href{https://www.google.com}{https://www.google.com}
+\begin{Problem}
+	
+	
+	
+\end{Problem}
 
-\end{comment}
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+% \end{comment}
 
 \end{document}
