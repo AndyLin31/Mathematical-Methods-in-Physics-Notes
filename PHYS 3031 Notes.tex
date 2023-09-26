@@ -67,6 +67,7 @@
 \usepackage[ruled,vlined]{algorithm2e}
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{listings}
+\usepackage{wrapfig}
 % New command
 \newcommand\course{PHYS 3031}  
 \newcommand\coursetitle{Mathematical Methods in Physics II}
@@ -309,30 +310,42 @@ If $a_n>0, \lim_{n\to\infty} a_n = 0$, this series may diverge.
 Convergent condition for $x$:
 $\lim_{n\to\infty} \big| \frac{a_{n+1}}{a_n} (x-x_0) \big| < 1$
 
+\subsection{Asymptotic Series}
+
+For functions $f(z)$ and $\phi(z)\neq 0$ defined in $\mathring{U}(z_0)$, we say that $f(z) = O(\phi(z))$ at $z\to z_0$ if $f(z)/\phi(z)$ is bounded, and that $f(z) = o(\phi(z))$ at $z\to z_0$ if $f(z)/\phi(z) \to 0$.
+
+If for $\forall m$, when $z\to z_0$,
+$$
+f(z) - \sum_{n=0}^m a_n \phi_n(z) = o(\phi_m(z))
+$$
+
+we say that $\sum_{n=0}^m a_n \phi_n(z)$ is an asymptotic series for $f(z)$, even though the series may not converge:
+$$
+f(z) \sim \sum_{n=0}^m a_n \phi_n(z)
+$$
+
 \section[Taylor Expansion]{Taylor Expansion $\sum_{n=0}^\infty a_n (x-x_0)^n$}
+$$
+\sin x = \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!} x^{2n+1}\ \ \ \ \ \cos x = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n}\ \ \ \ \ \tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \frac{17x^7}{315} + ...\ \ \ \ \ e^{x} = \sum_{n=0}^\infty \frac{x^n}{n!}
+$$
 
-$\sin x = \sum_{n=0}^\infty \frac{(-1)^n}{(2n+1)!} x^{2n+1}\ \ \ \ \ \cos x = \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n}\ \ \ \ \ \tan x = x + \frac{x^3}{3} + \frac{2x^5}{15} + \frac{17x^7}{315} + ...\ \ \ \ \ e^{x} = \sum_{n=0}^\infty \frac{x^n}{n!}$
-
-$\arctan x = \int_0^x \sum_{n=0}^\infty (-t^2)^n \dd t = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1} \text{, where } |x| < 1$
+$$
+\arctan x = \int_0^x \sum_{n=0}^\infty (-t^2)^n \dd t = \sum_{n=0}^\infty \frac{(-1)^n x^{2n+1}}{2n+1} \text{, where } |x| < 1
+$$
 
 \subsection{Leibniz Rule}
-
 $$
 \frac{\dd^{(M)}}{\dd x^M} (u\cdot v) = \bigg(\frac{\dd u}{\dd x}\frac{\partial}{\partial u} + \frac{\dd v}{\dd x}\frac{\partial}{\partial v}\bigg) (u\cdot v) = \sum_{n=0}^M C_M^n \bigg(\frac{\dd^{(M-n)} u}{\dd x^{(M-n)}}\bigg) \bigg(\frac{\dd^{(n)} v}{\dd x^n}\bigg)
 $$
 
 \subsection{Error Estimation when N Terms are Kept}
-
 $$
 f(x) \approx \sum_{n=0}^N (-1)^n a_n (x-x_0)^n\ \ \ \ \ b_n \equiv a_n(x-x_0)^n > 0
 $$
 
-\newpage
-
 \subsubsection[Alternating Series]{Alternating Series $S = \sum_{n=0}^\infty (-1)^n b_n$}
 
 Maximum possible error for $f(x)$ is
-
 $$
 b_{N+1} = a_{N+1} \big| x-x_0 \big|^{N+1}
 $$
@@ -340,7 +353,6 @@ $$
 \subsubsection["Positive" Series]{"Positive" Series $S = \sum_{n=0}^\infty a_n (x-x_0)^n, a_n (x-x_0)^n > 0$}
 
 If it converges when $\big|x-x_0\big| < 1$, and $\big|a_{n+1}\big| < \big|a_n\big|$, then
-
 $$
 S - S_N < \frac{\big|a_{N+1}\big| \big|x-x_0\big|^{N+1}}{1-\big|x-x_0\big|}
 $$
@@ -379,6 +391,17 @@ Cauchy-Riemann Conditions in Cartesian Coordinate: $\partial_x u = \partial_y v,
 
 Cauchy-Riemann Conditions in Polar Coordinate: $\partial_\theta u = -\rho \partial_\rho v, \quad \partial_\theta v = \rho \partial_\rho u$
 
+\textbf{Isolated Zeros}
+
+If $f$ is analytic at $z_0$, then $f$ has a zeo of order $m\geq 1$ at $z_0$ if
+$$
+f(z_0) = f'(z_0) = \cdots = f^{(m-1)}(z_0) = 0
+$$
+
+and $f^{(m)}(z_0) \neq 0$. Note that $f$ becomes a \textbf{branch point} if $m$ is not an integer, and that $f$ is not analytic at that point.
+
+\textbf{Theorem:} If $z=a$ is a zero of $f(z)$ which is not a constant at $\mathring{U}(a)$, then $\exists \rho > 0$, $f(z)$ doesn't have any zeros in the region $0 < |z-a| < \rho$.
+
 \subsection{Line Integrals}
 
 With the substitution of line $c: y = g(x)$, $\dd y = g'(x)\dd x$
@@ -387,7 +410,6 @@ $$
 $$
 
 \textbf{Cauchy's Theorem for Analytic Functions:}
-
 $$
 \oint_C f(z) \dd z = 0
 $$
@@ -396,45 +418,70 @@ $$
 
 $\bullet$ Small Arc Lemma (小圆弧引理):
 
-If $f(z)$ is continuous in $\mathring{U}(a)$, and $(z-a)f(z)$ approaches $k$ consistently as $|z-a|\to 0$ within $\theta_1 \leq arg(z-a) \leq \theta_2$, then
-
+If $f(z)$ is continuous in $\mathring{U}(a)$, and $(z-a)f(z)$ approaches $k$ consistently as $|z-a|\to 0$ within $\theta_1 \leq \arg(z-a) \leq \theta_2$, then
 $$
 \lim_{\delta \to 0} \int_{C_{\delta}} f(z) \dd z = ik(\theta_2-\theta_1)
 $$
 
 $\bullet$ Big Arc Lemma (大圆弧引理):
 
-If $f(z)$ is continuous in $\mathring{U}(\infty)$, and $zf(z)$ approaches $K$ consistently as $z \to \infty$ within $\theta_1 \leq arg(z-a) \leq \theta_2$, then
-
+If $f(z)$ is continuous in $\mathring{U}(\infty)$, and $zf(z)$ approaches $K$ consistently as $z \to \infty$ within $\theta_1 \leq \arg(z-a) \leq \theta_2$, then
 $$
 \lim_{R \to \infty} \int_{C_R} f(z) \dd z = iK(\theta_2-\theta_1)
 $$
 
 \textbf{Cauchy's Integral Formula:} $f(z)$ is analytic inside and on the contour, then for $\forall z_0$ inside the contour,
-
 $$
 \implies f(z_0) = \frac{1}{2\pi i} \oint_C \frac{f(z)\dd z}{z-z_0}\\
-\implies f(z_0) = \frac{1}{2\pi} \int_0^{2\pi} f(z_0+Re^{i\theta}) \dd \theta \text{  (Mean Value Theorem)}
+\implies f(z_0) = \frac{1}{2\pi} \int_0^{2\pi} f(z_0+Re^{i\theta}) \dd \theta \text{  (Mean Value Theorem 均值定理)}
 $$
 
 i.e. Get full information inside by the information on the boundary only.
 
+\textbf{Note:} If $z_0$ were outside the contour, then
+
+$\bullet$ If $f$ is analytic inside $C$, then $\frac{1}{2\pi i} \oint_C \frac{f(z)\dd z}{z-z_0} = 0$
+
+$\bullet$ If $f$ is analytic outside $C$ and $\lim_{z\to\infty} f(z) = K$, then $\frac{1}{2\pi i} \oint_C \frac{f(z)\dd z}{z-z_0} = f(z_0) - K$
+
+$\bullet$ [IMPORTANT!] The above two lemmas are NOT contradictory. In fact, if a complex function is analytic and bounded within $U(\infty)$, then it must be a constant function. (Liouville Theorem 刘维尔定理)
+
+\textbf{Poisson's Formula}
+
+Idea: If $f(z=x+iy) = u(x, y) + iv(x, y)$ is analytic on the upper-half plane and that we only know the value of $u(x, 0)$ or $v(x, 0)$, we can first get the value of $f(x\in\R)$, then apply the Cauchy's Integral Formula to get all the complex value on the upper-half plane:
+$$
+f(z) = \frac{1}{\pi i} \int_{-\infty}^{\infty} \frac{u(\xi,0)}{\xi-(x+iy)} \dd \xi = \frac{1}{\pi} \int_{-\infty}^{\infty} \frac{v(\xi,0)}{\xi-(x+iy)} \dd \xi
+$$
+$$
+f(z) = \frac{y}{\pi} \int_{-\infty}^{\infty} \frac{f(\xi)}{(\xi-x)^2+y^2} \dd \xi = \frac{1}{\pi i} \int_{-\infty}^{\infty} \frac{(\xi-x)f(\xi)}{(\xi-x)^2+y^2} \dd \xi
+$$
+
+\subsection{Taylor Series}
+
+\textbf{Derivative of $f(z)$}
+$$
+f^{(n)}(a) \equiv \frac{\dd^{(n)}f}{\dd a^n} = \frac{n!}{2\pi i} \oint_C \frac{f(z) \dd z}{(z-a)^{n+1}}
+$$
+\begin{wrapfigure}{r}{0.14\textwidth}
+	\centering
+	\includegraphics[width=0.14\textwidth]{img3-1}
+\end{wrapfigure}
+\textbf{Taylor Series $f(z) = \sum a_n (z-z_0)^n$}
+
+Suppose $f(z)$ has a singular point at $z_1$, we can expand $f(z)$ at $z_0$:
+$$
+f(z) = \frac{1}{2\pi i} \oint_C \frac{f(z')\dd z'}{z'-z} = \frac{1}{2\pi i} \sum_{n=0}^{\infty} (z-z_0)^n \oint_C \frac{f(z')\dd z'}{(z'-z_0)^{n+1}} = \sum_{n=0}^{\infty} a_n (z-z_0)^n
+$$
+$$
+a_n \equiv \frac{1}{2\pi i} \oint_C \frac{f(z')\dd z'}{(z'-z_0)^{n+1}} = \frac{1}{n!} \frac{\dd^n f(z_0)}{\dd z^n}
+$$
+
+\subsection{Lauren Series}
+
+Suppose $f(z)$ has a pole at $z_0$, define the hole as order $N \geq 1$ at $z_0$ if $\lim_{z\to z_0} (z-z_0)^N f(z)$ is finite and non-zero.
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-\newpage
 
 
 
@@ -1025,17 +1072,15 @@ Thus, the series converges.
 
 \begin{Problem}
 	
+	Find the disk of convergence for each of the following complex power series:
 	
+	\noindent (a) $\sum_{n=1}^{\infty} \frac{z^{2n}}{(2n+1)!}$
 	
-\end{Problem}
-
-\textbf{Solution.}
-
-\newpage
-
-\begin{Problem}
+	\noindent (b) $\sum_{n=1}^{\infty} \frac{z^n}{\sqrt{n}}$
 	
+	\noindent (c) $\sum_{n=1}^{\infty} \frac{(iz)^n}{n^2}$
 	
+	\noindent (d) $\sum_{n=0}^{\infty} \frac{(z-2+i)^n}{2^n}$
 	
 \end{Problem}
 
@@ -1045,7 +1090,29 @@ Thus, the series converges.
 
 \begin{Problem}
 	
+	Using series you know from Chapter 1, write the power series (about the origin) of the following functions. Use Theorem III to find the disk of convergence of each series. What you are looking for is the point (anywhere in the complex plane) nearest the origin, at which the function does not have a derivative. Then the disk of convergence has center at the origin and extends to that point. The series converges inside the disk.
 	
+	\noindent (a) $\ln(1-z)$
+	
+	\noindent (b) $\frac{z}{z^2+9}$
+	
+	\noindent (c) $(1-z)^{-1}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Using polar coordinates, find out whether the following functions satisfy the Cauchy-Riemann equations.
+	
+	\noindent (a) $\sqrt{z}$
+	
+	\noindent (b) $|z|$
+	
+	\noindent (c) $\ln z$
 	
 \end{Problem}
 
