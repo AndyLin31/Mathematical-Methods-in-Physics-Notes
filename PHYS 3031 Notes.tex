@@ -68,6 +68,8 @@
 \usepackage[framemethod=TikZ]{mdframed}
 \usepackage{listings}
 \usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{makecell}
 % New command
 \newcommand\course{PHYS 3031}  
 \newcommand\coursetitle{Mathematical Methods in Physics II}
@@ -335,7 +337,7 @@ $$
 
 \subsection{Leibniz Rule}
 $$
-\frac{\dd^{(M)}}{\dd x^M} (u\cdot v) = \bigg(\frac{\dd u}{\dd x}\frac{\partial}{\partial u} + \frac{\dd v}{\dd x}\frac{\partial}{\partial v}\bigg) (u\cdot v) = \sum_{n=0}^M C_M^n \bigg(\frac{\dd^{(M-n)} u}{\dd x^{(M-n)}}\bigg) \bigg(\frac{\dd^{(n)} v}{\dd x^n}\bigg)
+\frac{\dd^{(M)}}{\dd x^M} (u\cdot v) = \bigg(\frac{\dd u}{\dd x}\frac{\partial}{\partial u} + \frac{\dd v}{\dd x}\frac{\partial}{\partial v}\bigg)^M (u\cdot v) = \sum_{n=0}^M C_M^n \bigg(\frac{\dd^{(M-n)} u}{\dd x^{(M-n)}}\bigg) \bigg(\frac{\dd^{(n)} v}{\dd x^n}\bigg)
 $$
 
 \subsection{Error Estimation when N Terms are Kept}
@@ -444,7 +446,11 @@ $\bullet$ If $f$ is analytic inside $C$, then $\frac{1}{2\pi i} \oint_C \frac{f(
 
 $\bullet$ If $f$ is analytic outside $C$ and $\lim_{z\to\infty} f(z) = K$, then $\frac{1}{2\pi i} \oint_C \frac{f(z)\dd z}{z-z_0} = f(z_0) - K$
 
-$\bullet$ [IMPORTANT!] The above two lemmas are NOT contradictory. In fact, if a complex function is analytic and bounded within $U(\infty)$, then it must be a constant function. (Liouville Theorem 刘维尔定理)
+$\bullet$ The above two lemmas are NOT contradictory. In fact, if a complex function is analytic and bounded within $U(\infty)$, then it must be a constant function.
+
+\textbf{Liouville Theorem (in Complex Analysis) 刘维尔定理}
+
+Every bounded entire function must be constant. That is, every holomorphic function $f$ for which there exists a positive number $M$ such that $|f(z)|\leq M$ for all $z\in\mathbb{C}$ is constant. Equivalently, non-constant holomorphic functions on $\mathbb{C}$ have unbounded images.
 
 \textbf{Poisson's Formula}
 
@@ -478,34 +484,99 @@ $$
 
 \subsection{Lauren Series}
 
-Suppose $f(z)$ has a pole at $z_0$, define the hole as order $N \geq 1$ at $z_0$ if $\lim_{z\to z_0} (z-z_0)^N f(z)$ is finite and non-zero.
+Suppose $f(z)$ has a pole at $z_0$, define the hole as order $N \geq 1$ at $z_0$ if $\lim_{z\to z_0} (z-z_0)^N f(z)$ is finite and non-zero. ("Essential Pole" if such $N\to\infty$ like $e^{1/z}$ at $z=0$)
 
+$f(z)$ can be expressed as
+$$
+f(z) = \sum_{m=0}^\infty a_m (z-z_0)^m + \sum_{n=1}^N \frac{b_m}{(z-z_0)^n} \text{ as } \lim_{z\to z_0} (z-z_0)^N f(z) = b_N
+$$
+\begin{wrapfigure}{r}{0.14\textwidth}
+	\centering
+	\includegraphics[width=0.14\textwidth]{img3-2}
+\end{wrapfigure}
+$$
+f(z) = \frac{1}{2\pi i} \oint_{C_1} \frac{f(z')\dd z'}{z'-z} + \oint_{C_2} \frac{f(z')\dd z'}{z'-z} = I_1 + I_2
+$$
+We have
+$$
+a_n = \frac{1}{2\pi i} \oint_{C_1} \frac{f(z')\dd z'}{(z'-z_0)^{n+1}} \quad b_1 = \frac{1}{2\pi i} \oint_{C_2} f(z')\dd z' \quad b_{n+1} = \frac{1}{2\pi i} \oint_{C_2} f(z')(z'-z_0)^n\dd z' \quad \text{(Not Useful)}
+$$
+Note that when $f(z)$ is analytic at $z_0$, $a_n$ becomes the same as the coefficient in Taylor Series, and $b_i \equiv 0$ for $\forall i$.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-% \begin{comment}
+\subsection{Residue Theorem 留数定理}
+We want to evaluate $\oint_C f(z) \dd z$ around the pole. By applying the Lauren Series, one can prove that
+$$
+\oint_C f(z) \dd z = 2\pi i b_1
+$$
 
 \newpage
+
+To find $b_1$, notice that $\lim_{z\to z_0} (z-z_0)^N f(z)$ is finite and all the other terms in the Lauren Series would disappear by taking $(N-1)$ times derivatives and taking $z = z_0$:
+$$
+b_1 = \lim_{z\to z_0} \frac{g^{(M-1)}(z)}{(M-1)!}, \text{ where } g(z) \equiv (z-z_0)^M f(z), M\geq N
+$$
+
+We then define the coefficient $b_1$ of the Lauren Series at the pole $z_0$ as $b_1(z_0) \equiv R(z_0)$, and refer as the \textbf{residue} of $f(z)$ at $z_0$
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.5\textwidth]{img3-3}
+\end{figure}
+
+If $f(z)$ has singular points $z_1, z_2, \cdots, z_n$ inside contour $C$, then
+$$
+\oint_C f(z)\dd z = 2\pi i \sum_{n=1}^N R(z_n)
+$$
+
+\newpage
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		Noun & Explanation \\
+		\hline
+		Analytic (Holomorphic) Point & A point which the function has a derivative at and in a neighborhood around that point \\
+		
+		Branch Point 分支点& A point such that all of its neighborhoods contain a point that has more than n values \\
+		
+		Pole & A point of a function $f$ if it is a zero of the function $1/f$ which is analytic \\
+		
+		Regular Point & A point in the function's domain where the function is differentiable \\
+		
+		Singularity 奇点& \thead{Essential Singularity: $\lim_{z\to z_0} (z-z_0)^N f(z)$ is always infinite \\ Isolated Singularity: One that has no other singularities close to it \\ Movable Singularity, Removable Singularity } \\
+
+		\hline
+	\end{tabular}
+\caption{Explanation of Important Nouns}
+\end{table}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\newpage
+
+\begin{comment}
 
 \section*{Homework 1}
 
@@ -1086,6 +1157,34 @@ Thus, the series converges.
 
 \textbf{Solution.}
 
+(a)
+$$
+\lim_{n\to\infty} \big|\frac{a_{n+1}}{a_n}\big| = \lim_{n\to\infty} \big|\frac{z^2}{(2n+2)(2n+3)}\big| = 0 < 1 \text{ for } \forall z
+$$
+
+Thus, it converges for any $z$.
+
+(b)
+$$
+\lim_{n\to\infty} \big|\frac{a_{n+1}}{a_n}\big| = \lim_{n\to\infty} \big|\frac{\sqrt{n}}{\sqrt{n+1}} z\big| = \big|z\big| < 1
+$$
+
+Thus, it converges for $\big|z\big| < 1$.
+
+(c)
+$$
+\lim_{n\to\infty} \big|\frac{a_{n+1}}{a_n}\big| = \lim_{n\to\infty} \big|\frac{\sqrt{n^2}}{\sqrt{(n+1)^2}} iz\big| = \big|z\big| < 1
+$$
+
+Thus, it converges for $\big|z\big| < 1$.
+
+(d)
+$$
+\lim_{n\to\infty} \big|\frac{a_{n+1}}{a_n}\big| = \lim_{n\to\infty} \big|\frac{z-2+i}{2}\big| < 1
+$$
+
+Thus, it converges for $\big|z-2+i\big| < 2$.
+
 \newpage
 
 \begin{Problem}
@@ -1101,6 +1200,32 @@ Thus, the series converges.
 \end{Problem}
 
 \textbf{Solution.}
+
+Using Taylor Expansion where
+$$
+f(z) = \sum a_n (z-z_0)^n \text{ where } a_n = \frac{1}{n!} \frac{\dd^n f(z_0)}{\dd z^n}
+$$
+
+(a)
+$$
+\ln(1-z) = -\bigg[z+\frac{1}{2}z^2+\frac{1}{3}z^3+\cdots\bigg]
+$$
+
+The analytic region indicates that $|z|<1$, thus the disk of convergence has the same radius.
+
+(b)
+$$
+\frac{z}{z^2+9} = \frac{z}{9} - \frac{z^3}{9^2} + \frac{z^5}{9^3} - \cdots
+$$
+
+The analytic region indicates that $|z|<3$, thus the disk of convergence has the same radius.
+
+(c)
+$$
+(1-z)^{-1} = 1+z+z^2+z^3+\cdots
+$$
+
+The analytic region indicates that $|z|<1$, thus the disk of convergence has the same radius.
 
 \newpage
 
@@ -1118,6 +1243,143 @@ Thus, the series converges.
 
 \textbf{Solution.}
 
+Cauchy-Riemann Conditions in Polar Coordinate:
+$$
+\partial_\theta u = -\rho \partial_\rho v, \quad \partial_\theta v = \rho \partial_\rho u
+$$
+
+(a)
+$$
+\sqrt{\rho e^{i\theta}} = \sqrt{\rho} e^{i\theta/2}\ \&\ e^{i(\theta+\pi)/2}
+$$
+$$
+\implies u = \sqrt{\rho} \cos(\theta/2)\ \&\ \sqrt{\rho} \cos(\theta+\pi)/2 \quad v = \sqrt{\rho} \sin(\theta/2)\ \&\ \sqrt{\rho} \sin(\theta+\pi)/2
+$$
+$$
+\partial_\theta u + \rho \partial_\rho v = \partial_\theta v - \rho \partial_\rho u \text{ for both values}
+$$
+
+Thus, it satisfies the Cauchy-Riemann equations.
+
+(b)
+$$
+u = \rho \quad v = 0
+$$
+$$
+\partial_\theta u + \rho \partial_\rho v = 0 \quad \partial_\theta v - \rho \partial_\rho u = - \rho \neq 0
+$$
+
+Thus, it doesn't satisfie the Cauchy-Riemann equations.
+
+(c)
+$$
+\ln(\rho e^{i\theta}) = \ln|\rho| + i(\theta+2n\pi)
+$$
+$$
+\implies u = \ln|\rho| \quad v = \theta+2n\pi
+$$
+$$
+\partial_\theta u + \rho \partial_\rho v = \partial_\theta v - \rho \partial_\rho u = 0
+$$
+
+Thus, it satisfies the Cauchy-Riemann equations.
+
+\newpage
+
+\end{comment}
+
+\section*{Homework 4}
+
+\begin{Problem}
+	
+	Evaluate the integral $\int_1^i z \dd z$ along the indicated paths.
+
+\end{Problem}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.1\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{hw4-1}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.1\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{hw4-2}
+	\end{subfigure}
+\end{figure}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Evaluate $\oint_C (\bar{z}-3) \dd z$ where $C$ is the indicated closed curve along the first quadrant part of the circle $|z| = 2$, and the indicated parts of the $x$ and $y$ axes. Hint: Don't try to use Cauchy's theorem!
+	
+\end{Problem}
+
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.1\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{hw4-3}
+	\end{subfigure}
+\end{figure}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Evaluate the following integrals:
+	
+	\noindent (a) $\oint_C \frac{\sin 2z \dd z}{6z-\pi}$ where $C$ is the circle $|z| = 3$
+	
+	\noindent (b) $\oint \frac{e^{3z} \dd z}{z - \ln 2}$ if $C$ is the square with vertices $\pm 1 \pm i$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	For each of the following functions, say whether the indicated point is regular, an essential singularity, or a pole, and if a pole of what order it is.
+	
+	\noindent (a) $\frac{e^z-1-z}{z^2},\ z = 0$
+	
+	\noindent (b) $\frac{\sin z}{z^3},\ z = 0$
+	
+	\noindent (c) $\frac{z^2-1}{(z-1)^2},\ z = 1$
+	
+	\noindent (d) $\frac{\cos z}{(z-\pi/2)^4},\ z = \pi/2$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Find the residues of the following functions at the indicated points. Try to select the easiest of the methods outlined above. Check your results by computer.
+	
+	\noindent (a) $\frac{1}{(3z+2)(2-z)}$ at $z=-\frac{2}{3}$ and $z=2$
+	
+	\noindent (b) $\frac{z+2}{4z^2-1}$ at $z=\frac{1}{2}$ and $z=-\frac{1}{2}$
+	
+	\noindent (c) $\frac{\cosh z-1}{z^7}$ at $z=0$
+	
+	\noindent (d) $\frac{e^{iz}}{(z^2+4)^2}$ at $z=0$ and $z=\frac{1}{2}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\begin{comment}
+
 \newpage
 
 \begin{Problem}
@@ -1128,6 +1390,66 @@ Thus, the series converges.
 
 \textbf{Solution.}
 
-% \end{comment}
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\end{comment}
 
 \end{document}
