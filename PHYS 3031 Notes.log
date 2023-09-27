@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  27 SEP 2023 20:03
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  27 SEP 2023 21:37
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1491,82 +1491,89 @@ File: ./images//logo-hkust.png Graphic file (type bmp)
  [1
 
 ]
-Excluding 'comment' comment.
+Excluding 'comment' comment. (./PHYS 3031 Notes.toc
 LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 12.00128pt on input line 282.
-LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 8.00085pt on input line 282.
-LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 6.00064pt on input line 282.
+(Font)              scaled to size 5.00053pt on input line 2.
 LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 282.
-LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 282.
-LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 282.
-LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
-(Font)              scaled to size 5.00053pt on input line 284.
-LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 284.
+(Font)              scaled to size 4.99947pt on input line 2.
+)
+\tf@toc=\write6
+\openout6 = `"PHYS 3031 Notes.toc"'.
+
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [1]
+LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 12.00128pt on input line 286.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 8.00085pt on input line 286.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(2)/m/n' will be
+(Font)              scaled to size 6.00064pt on input line 286.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
+(Font)              scaled to size 11.99872pt on input line 286.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
+(Font)              scaled to size 7.99915pt on input line 286.
+LaTeX Font Info:    Font shape `TU/LatinModernMath(3)/m/n' will be
+(Font)              scaled to size 5.99936pt on input line 286.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [2]
+File: ./images//logo-hkust.png Graphic file (type bmp)
+<./images//logo-hkust.png>
+ [3]
 
 LaTeX Font Warning: Font shape `TU/SimSun(0)/b/n' undefined
-(Font)              using `TU/SimSun(0)/m/n' instead on input line 451.
+(Font)              using `TU/SimSun(0)/m/n' instead on input line 455.
 
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
-[3]
+[4]
 File: ./images//img3-1.png Graphic file (type bmp)
 <./images//img3-1.png>
 File: ./images//img3-2.png Graphic file (type bmp)
 <./images//img3-2.png>
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
- [4]
+ [5]
 File: ./images//img3-3.png Graphic file (type bmp)
 <./images//img3-3.png>
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
- [5]
-Overfull \hbox (14.1533pt too wide) in paragraph at lines 535--551
+ [6]
+Overfull \hbox (14.1533pt too wide) in paragraph at lines 559--575
  [][] 
  []
 
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
-[6] Excluding 'comment' comment.
+[7] Excluding 'comment' comment.
 File: ./images//hw4-1.png Graphic file (type bmp)
 <./images//hw4-1.png>
 File: ./images//hw4-2.png Graphic file (type bmp)
 <./images//hw4-2.png>
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
- [7]
-Package mdframed Info: Not enough space on this page on input line 1319.
+ [8]
+Package mdframed Info: Not enough space on this page on input line 1343.
 File: ./images//hw4-3.png Graphic file (type bmp)
 <./images//hw4-3.png>
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
- [8]
-Package mdframed Info: Not enough space on this page on input line 1341.
-File: ./images//logo-hkust.png Graphic file (type bmp)
-<./images//logo-hkust.png>
  [9]
-Package mdframed Info: Not enough space on this page on input line 1359.
+Package mdframed Info: Not enough space on this page on input line 1365.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [10]
-Package mdframed Info: Not enough space on this page on input line 1377.
- Excluding 'comment' comment.
+Package mdframed Info: Not enough space on this page on input line 1383.
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
+ [11]
+Package mdframed Info: Not enough space on this page on input line 1401.
 
-[11] (./PHYS 3031 Notes.aux)
+Excluding 'comment' comment.
+File: ./images//logo-hkust.png Graphic file (type bmp)
+<./images//logo-hkust.png>
+ [12] (./PHYS 3031 Notes.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1574,12 +1581,12 @@ Package rerunfilecheck Info: File `"PHYS 3031 Notes".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 36452 strings out of 476179
- 723735 string characters out of 5813072
- 1191610 words of memory out of 5000000
- 56573 multiletter control sequences out of 15000+600000
+ 36459 strings out of 476179
+ 723868 string characters out of 5813072
+ 1194867 words of memory out of 5000000
+ 56577 multiletter control sequences out of 15000+600000
  479558 words of font info for 111 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  109i,18n,118p,519b,1058s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on PHYS 3031 Notes.pdf (12 pages).
+Output written on PHYS 3031 Notes.pdf (13 pages).

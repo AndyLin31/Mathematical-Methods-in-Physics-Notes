@@ -277,6 +277,10 @@ print("Hello World!")
 
 \end{comment}
 
+\tableofcontents
+
+\newpage
+
 \section{Series}
 
 \subsection[Convergence Condition for Positive Series]{Convergence Condition for Positive Series $\sum\limits_{n=1}^{\infty} a_n$}
@@ -503,6 +507,10 @@ a_n = \frac{1}{2\pi i} \oint_{C_1} \frac{f(z')\dd z'}{(z'-z_0)^{n+1}} \quad b_1 
 $$
 Note that when $f(z)$ is analytic at $z_0$, $a_n$ becomes the same as the coefficient in Taylor Series, and $b_i \equiv 0$ for $\forall i$.
 
+\subsection{Analytic Continuation 解析延拓}
+
+Suppose $f_1(z)$ is analytic in region $g_1$, $f_2(z)$ is analytic in region $g_2$, such that $g_1 \cap g_2 \neq \emptyset$. If $f_1(z) \equiv f_2(z)$ in $g_1 \cap g_2$, then $f_2(z)$ is the analytic continuation for $f_1(z)$ in region $g_2$.
+
 \subsection{Residue Theorem 留数定理}
 We want to evaluate $\oint_C f(z) \dd z$ around the pole. By applying the Lauren Series, one can prove that
 $$
@@ -513,7 +521,7 @@ $$
 
 To find $b_1$, notice that $\lim_{z\to z_0} (z-z_0)^N f(z)$ is finite and all the other terms in the Lauren Series would disappear by taking $(N-1)$ times derivatives and taking $z = z_0$:
 $$
-b_1 = \lim_{z\to z_0} \frac{g^{(M-1)}(z)}{(M-1)!}, \text{ where } g(z) \equiv (z-z_0)^M f(z), M\geq N
+b_1 = \lim_{z\to z_0} \frac{g^{(M-1)}(z)}{(M-1)!}, \text{ where } g(z) \equiv (z-z_0)^M f(z), M\geq N \text{ (Usually taking $M=N$)}
 $$
 
 We then define the coefficient $b_1$ of the Lauren Series at the pole $z_0$ as $b_1(z_0) \equiv R(z_0)$, and refer as the \textbf{residue} of $f(z)$ at $z_0$
@@ -527,6 +535,22 @@ If $f(z)$ has singular points $z_1, z_2, \cdots, z_n$ inside contour $C$, then
 $$
 \oint_C f(z)\dd z = 2\pi i \sum_{n=1}^N R(z_n)
 $$
+
+\textbf{Residue at Infinity}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \newpage
 
