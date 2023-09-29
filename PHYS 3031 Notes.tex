@@ -316,7 +316,7 @@ If $a_n>0, \lim_{n\to\infty} a_n = 0$, this series may diverge.
 Convergent condition for $x$:
 $\lim_{n\to\infty} \big| \frac{a_{n+1}}{a_n} (x-x_0) \big| < 1$
 
-\subsection{Asymptotic Series}
+\subsection{Asymptotic Series 渐近级数}
 
 For functions $f(z)$ and $\phi(z)\neq 0$ defined in $\mathring{U}(z_0)$, we say that $f(z) = O(\phi(z))$ at $z\to z_0$ if $f(z)/\phi(z)$ is bounded, and that $f(z) = o(\phi(z))$ at $z\to z_0$ if $f(z)/\phi(z) \to 0$.
 
@@ -397,7 +397,7 @@ Cauchy-Riemann Conditions in Cartesian Coordinate: $\partial_x u = \partial_y v,
 
 Cauchy-Riemann Conditions in Polar Coordinate: $\partial_\theta u = -\rho \partial_\rho v, \quad \partial_\theta v = \rho \partial_\rho u$
 
-\textbf{Isolated Zeros}
+\textbf{Isolated Zeros 孤立零点}
 
 If $f$ is analytic at $z_0$, then $f$ has a zeo of order $m\geq 1$ at $z_0$ if
 $$
@@ -476,6 +476,7 @@ $$
 	\centering
 	\includegraphics[width=0.14\textwidth]{img3-1}
 \end{wrapfigure}
+
 \textbf{Taylor Series $f(z) = \sum a_n (z-z_0)^n$}
 
 Suppose $f(z)$ has a singular point at $z_1$, we can expand $f(z)$ at $z_0$:
@@ -562,7 +563,7 @@ $$
 		\hline
 		Analytic (Holomorphic) Point & A point which the function has a derivative at and in a neighborhood around that point \\
 		
-		Branch Point 分支点& A point such that all of its neighborhoods contain a point that has more than n values \\
+		Branch Point 分枝点& A point such that all of its neighborhoods contain a point that has more than n values \\
 		
 		Pole & A point of a function $f$ if it is a zero of the function $1/f$ which is analytic \\
 		
@@ -599,6 +600,8 @@ $$
 
 
 \newpage
+
+\end{document}
 
 \begin{comment}
 
@@ -1334,6 +1337,12 @@ Thus, it satisfies the Cauchy-Riemann equations.
 
 \textbf{Solution.}
 
+Note that the function to be integrated is analytic, thus the integration result for all the paths are the same.
+
+$$
+I = \int_1^0 z \dd z + \int_0^i z \dd z = \frac{1}{2} - \frac{1}{2} = 0
+$$
+
 \newpage
 
 \begin{Problem}
@@ -1351,6 +1360,16 @@ Thus, it satisfies the Cauchy-Riemann equations.
 \end{figure}
 
 \textbf{Solution.}
+
+$$
+\begin{aligned}
+	I &= (\int_0^2 + \int_{\text{Arc}} + \int_{2i}^0) (\bar{z}-3) \dd z\\
+	&= 
+\end{aligned}
+$$
+
+
+
 
 \newpage
 

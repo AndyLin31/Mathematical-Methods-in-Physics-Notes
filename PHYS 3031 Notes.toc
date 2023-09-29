@@ -2,7 +2,7 @@
 \contentsline {subsection}{\numberline {1.1}Convergence Condition for Positive Series}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Convergence Condition for Alternating Series}{2}{subsection.1.2}%
 \contentsline {subsection}{\numberline {1.3}Power Series}{2}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Asymptotic Series}{2}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.4}Asymptotic Series 渐近级数}{2}{subsection.1.4}%
 \contentsline {section}{\numberline {2}Taylor Expansion}{2}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Leibniz Rule}{3}{subsection.2.1}%
 \contentsline {subsection}{\numberline {2.2}Error Estimation when N Terms are Kept}{3}{subsection.2.2}%
