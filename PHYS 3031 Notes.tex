@@ -539,17 +539,22 @@ $$
 
 \textbf{Residue at Infinity}
 
+If $\infty$ is NOT a non-isolated singularity, define
+$$
+R(f(\infty)) = \frac{1}{2\pi i} \oint_{C'} f(z) \dd z
+$$
+where $C'$ is a closed curve \textbf{clockwise} around a point at infinity.
 
-
-
-
-
-
-
-
-
-
-
+Note that
+$$
+\begin{aligned}
+	R(f(\infty)) &= \frac{1}{2\pi i} \oint_{C'} f(z) \dd z = - \frac{1}{2\pi i} \oint_{C'} \frac{f(1/t)}{t^2} \dd t\\
+	&= - \frac{f(1/t)}{t^2} \text{\quad$t^{-1}$'s coefficient expanding at $t=0$}\\
+	&= - f(1/t) \text{\quad$t^{1}$'s coefficient expanding at $t=0$}\\
+	&= - f(z) \text{\quad$z^{-1}$'s coefficient expanding at $z=\infty$}
+\end{aligned}
+$$
+Note: $R(f(\infty))$ may NOT be zero even if $f(z)$ is analytic at $z=\infty$.
 
 
 
@@ -565,11 +570,11 @@ $$
 		
 		Branch Point 分枝点& A point such that all of its neighborhoods contain a point that has more than n values \\
 		
-		Pole & A point of a function $f$ if it is a zero of the function $1/f$ which is analytic \\
+		Pole 极点& A point of a function $f$ if it is a zero of the function $1/f$ which is analytic \\
 		
 		Regular Point & A point in the function's domain where the function is differentiable \\
 		
-		Singularity 奇点& \thead{Essential Singularity: $\lim_{z\to z_0} (z-z_0)^N f(z)$ is always infinite \\ Isolated Singularity: One that has no other singularities close to it \\ Movable Singularity, Removable Singularity } \\
+		Singularity 奇点& \thead{Essential Singularity 本性奇点: $\lim_{z\to z_0} (z-z_0)^N f(z)$ is always infinite \\ Isolated Singularity 孤立奇点: One that has no other singularities close to it \\ Movable Singularity, Removable Singularity } \\
 
 		\hline
 	\end{tabular}
@@ -1338,7 +1343,6 @@ Thus, it satisfies the Cauchy-Riemann equations.
 \textbf{Solution.}
 
 Note that the function to be integrated is analytic, thus the integration result for all the paths are the same.
-
 $$
 I = \int_1^0 z \dd z + \int_0^i z \dd z = \frac{1}{2} - \frac{1}{2} = 0
 $$
@@ -1363,7 +1367,7 @@ $$
 
 $$
 \begin{aligned}
-	I &= (\int_0^2 + \int_{\text{Arc}} + \int_{2i}^0) (\bar{z}-3) \dd z\\
+	I &= \bigg(\int_0^2 + \int_{\text{Arc}} + \int_{2i}^0\bigg) (\bar{z}-3) \dd z\\
 	&= 
 \end{aligned}
 $$
