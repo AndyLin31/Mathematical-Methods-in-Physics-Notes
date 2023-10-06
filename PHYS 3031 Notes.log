@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  3 OCT 2023 20:01
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  6 OCT 2023 23:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1538,16 +1538,21 @@ File: ./images//logo-hkust.png Graphic file (type bmp)
  [5]
 File: ./images//img3-3.png Graphic file (type bmp)
 <./images//img3-3.png>
+File: ./images//img3-4.png Graphic file (type bmp)
+<./images//img3-4.png>
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [6]
-Overfull \hbox (14.1533pt too wide) in paragraph at lines 565--581
+File: ./images//logo-hkust.png Graphic file (type bmp)
+<./images//logo-hkust.png>
+ [7]
+Overfull \hbox (14.1533pt too wide) in paragraph at lines 621--635
  [][] 
  []
 
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
-[7] (./PHYS 3031 Notes.aux)
+[8] (./PHYS 3031 Notes.aux)
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -1555,12 +1560,12 @@ Package rerunfilecheck Info: File `"PHYS 3031 Notes".out' has not changed.
 (rerunfilecheck)             Checksum: <no file>.
  ) 
 Here is how much of TeX's memory you used:
- 36201 strings out of 476179
- 716811 string characters out of 5813072
- 1194670 words of memory out of 5000000
- 56318 multiletter control sequences out of 15000+600000
+ 36230 strings out of 476179
+ 717383 string characters out of 5813072
+ 1195312 words of memory out of 5000000
+ 56347 multiletter control sequences out of 15000+600000
  479566 words of font info for 112 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  109i,18n,118p,519b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on PHYS 3031 Notes.pdf (8 pages).
+Output written on PHYS 3031 Notes.pdf (9 pages).

@@ -521,8 +521,12 @@ $$
 \newpage
 
 To find $b_1$, notice that $\lim_{z\to z_0} (z-z_0)^N f(z)$ is finite and all the other terms in the Lauren Series would disappear by taking $(N-1)$ times derivatives and taking $z = z_0$:
+
 $$
-b_1 = \lim_{z\to z_0} \frac{g^{(M-1)}(z)}{(M-1)!}, \text{ where } g(z) \equiv (z-z_0)^M f(z), M\geq N \text{ (Usually taking $M=N$)}
+b_1 = \lim_{z\to z_0} \frac{g^{(M-1)}(z)}{(M-1)!}, \text{ where } g(z) \equiv (z-z_0)^M f(z),\ M\geq N
+$$
+$$
+\text{ ("$\geq$" to overkill the denominator, theoretically taking $M=N$ is enough)}
 $$
 
 We then define the coefficient $b_1$ of the Lauren Series at the pole $z_0$ as $b_1(z_0) \equiv R(z_0)$, and refer as the \textbf{residue} of $f(z)$ at $z_0$
@@ -556,6 +560,58 @@ $$
 $$
 Note: $R(f(\infty))$ may NOT be zero even if $f(z)$ is analytic at $z=\infty$.
 
+\subsubsection[Rational Trignometric Function]{Rational Trignometric Function $\int_{0}^{2\pi} f(\sin \theta, \cos \theta) \dd \theta$}
+By applying the transformation below,
+$$
+\sin \theta = \frac{z^2-1}{2iz} \quad \cos \theta = \frac{z^2+1}{2z} \quad \dd \theta = \frac{\dd z}{iz}
+$$
+$$
+\int_{0}^{2\pi} f(\sin \theta, \cos \theta) \dd \theta = \oint_{|z|=1} f(\frac{z^2-1}{2iz}, \frac{z^2+1}{2z}) \frac{\dd z}{iz}
+$$
+\begin{formal}{Brown}{brownshade}
+	
+	\textbf{Example:}
+	$$
+	\begin{aligned}
+		\int_{-\pi}^{\pi} \frac{1}{1+\epsilon \cos \theta} \dd z\ (|\epsilon|<1) &= \oint_{|z|=1} \frac{2}{\epsilon z^2+2z+\epsilon} \frac{\dd z}{i} = 2\pi\sum_{|z|<1} R\bigg(\frac{2}{\epsilon z^2+2z+\epsilon}\bigg)\\
+		&= 2\pi \frac{2}{\frac{\dd}{\dd z}(\epsilon z^2+2z+\epsilon) \big|_{z=(-1+\sqrt{1-\epsilon^2})/\epsilon}} = \frac{2\pi}{\sqrt{1-\epsilon^2}}
+	\end{aligned}
+	$$
+	
+\end{formal}
+
+\subsubsection[Improper Intergral]{Improper Intergral (over $\mathbb{R}$) $\int_{-\infty}^{\infty} f(x) \dd x$}
+
+%\textbf{Requirements:} $\lim_{R\to\infty} f(x)$ exists
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.14\textwidth]{img3-4}
+\end{figure}
+\begin{formal}{Brown}{brownshade}
+	
+	\textbf{Example:}
+	$$
+	\begin{aligned}
+		\int_{-\infty}^{\infty} \frac{1}{1+x^2} \dd x &= \oint_{C_1+C_2} \frac{1}{1+z^2} \dd z = 2\pi i R(i) = \pi
+	\end{aligned}
+	$$
+	
+\end{formal}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \newpage
@@ -564,17 +620,15 @@ Note: $R(f(\infty))$ may NOT be zero even if $f(z)$ is analytic at $z=\infty$.
 	\centering
 	\begin{tabular}{|c|c|}
 		\hline
-		Noun & Explanation \\
+		Nouns & Explanations \\
 		\hline
 		Analytic (Holomorphic) Point & A point which the function has a derivative at and in a neighborhood around that point \\
 		
 		Branch Point 分枝点& A point such that all of its neighborhoods contain a point that has more than n values \\
 		
-		Pole 极点& A point of a function $f$ if it is a zero of the function $1/f$ which is analytic \\
-		
 		Regular Point & A point in the function's domain where the function is differentiable \\
 		
-		Singularity 奇点& \thead{Essential Singularity 本性奇点: $\lim_{z\to z_0} (z-z_0)^N f(z)$ is always infinite \\ Isolated Singularity 孤立奇点: One that has no other singularities close to it \\ Movable Singularity, Removable Singularity } \\
+		Singularity 奇点& \thead{Essential Singularity 本性奇点: $\lim_{z\to z_0} (z-z_0)^N f(z)$ is always infinite \\ Isolated Singularity 孤立奇点: One that has no other singularities close to it \\ Pole 极点: Lauren Series contains finitely many negative power terms \\ Removable Singularity 可去奇点: Lauren Series doesn't contain term with negative power terms} \\
 
 		\hline
 	\end{tabular}

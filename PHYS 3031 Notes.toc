@@ -16,3 +16,5 @@
 \contentsline {subsection}{\numberline {3.4}Lauren Series}{5}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Analytic Continuation 解析延拓}{5}{subsection.3.5}%
 \contentsline {subsection}{\numberline {3.6}Residue Theorem 留数定理}{5}{subsection.3.6}%
+\contentsline {subsubsection}{\numberline {3.6.1}Rational Trignometric Function}{6}{subsubsection.3.6.1}%
+\contentsline {subsubsection}{\numberline {3.6.2}Improper Intergral}{7}{subsubsection.3.6.2}%
