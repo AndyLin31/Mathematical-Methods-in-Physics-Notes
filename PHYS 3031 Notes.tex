@@ -208,75 +208,6 @@
 
 %%%%%%%%%%%%%%% Article Begins %%%%%%%%%%%%%%%
 
-\begin{comment}
-
-\begin{abstract}
-	Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract Abstract
-\end{abstract}
-
-\tableofcontents
-
-\begin{center}
-	\section*{\LARGE Title}
-\end{center}
-
-\section{Section 1}
-
-This is a link to \href{https://www.google.com}{Google}.
-
-$$
-\vec{\nabla} \cdot \vec{E}=\frac{1}{\epsilon_{0}} \cdot \rho
-$$
-
-\begin{formal}{DarkBlue}{blueshade}
-	\textbf{Theorem 1.1} 这是一段中文。\hyperref[ref1]{[1]}
-	
-	$$
-	\vec{\nabla} \cdot \vec{E}=\frac{1}{\epsilon_{0}} \cdot \rho
-	$$
-	
-	\noindent This is an English sentence.
-\end{formal}
-
-
-\begin{center}
-	\begin{tabular}{|c|c|c|}
-		\hline
-		\multirow{2}{*}{A} & B & C \\
-		\cline{2-3}
-		& D & E \\
-		\hline
-	\end{tabular}
-\end{center}
-
-\begin{algorithm}
-	\SetAlgoLined
-	\KwIn{$a, b$}
-	\KwOut{$c$}
-	$c = a + b$\;
-	\Return{$c$}\;
-	\caption{Addition}
-\end{algorithm}
-
-\begin{Problem}[Title]
-	
-	\lstset{language=Python}
-	\begin{lstlisting}[tabsize=4]
-print("Hello World!")
-	\end{lstlisting}
-
-\end{Problem}
-
-\begin{Solution}
-	
-	Text
-	
-\end{Solution}
-
-\newpage
-
-\end{comment}
-
 \tableofcontents
 
 \newpage
@@ -599,6 +530,20 @@ $$
 	
 \end{formal}
 
+\begin{comment}
+
+\begin{center}
+	\begin{tikzpicture}
+		\draw[rotate=40](0,0)ellipse(2 and 1.2);
+		\path[red] (-1, -1) edge [bend left] (1.2,0.6);
+		\node at(1.2,0.6)[right]{\scriptsize\( \lambda \)};
+		\fill(-0.2,0.07)circle(1pt)node[below]{\scriptsize\( p \)};
+		\draw[-latex,thick](-0.2,0.07)--(0.7,0.8)node[left,xshift=-0.1cm]{\scriptsize\( X \)};
+		\node at(0,-1)[right]{\scriptsize\( M \)};
+	\end{tikzpicture}
+\end{center}
+
+\end{comment}
 
 
 
@@ -1372,8 +1317,6 @@ Thus, it satisfies the Cauchy-Riemann equations.
 
 \newpage
 
-\end{comment}
-
 \section*{Homework 4}
 
 \begin{Problem}
@@ -1422,12 +1365,12 @@ $$
 $$
 \begin{aligned}
 	I &= \bigg(\int_0^2 + \int_{\text{Arc}} + \int_{2i}^0\bigg) (\bar{z}-3) \dd z\\
-	&= 
+	&= \int_0^2 (\bar{z}-3) \dd z + \int_{\text{Arc}} (\bar{z}-3) \dd z + \int_{2i}^0 (\bar{z}-3) \dd z\\
+	&= -4 + \int_0^{\frac{\pi}{2}} (2e^{-i\theta}-3) 2i e^{i\theta} \dd \theta + (-2+6i)\\
+	&= -4+[6+(2\pi-6)i]+(-2+6i)\\
+	&= 2\pi i
 \end{aligned}
 $$
-
-
-
 
 \newpage
 
@@ -1442,6 +1385,25 @@ $$
 \end{Problem}
 
 \textbf{Solution.}
+
+(a) The function has a simple pole at $z = \frac{\pi}{6}$, thus
+
+$$
+\begin{aligned}
+	\oint_C \frac{\sin 2z \dd z}{6z-\pi} &= \frac{1}{6} \oint_C \frac{\sin 2z \dd z}{z-\frac{\pi}{6}}\\
+	&= \frac{1}{6} \cdot 2\pi i \cdot Res(\frac{\sin 2z}{z-\frac{\pi}{6}}) \text{ at } \frac{\pi}{6}\\
+	&= \frac{\sqrt{3}\pi}{6}i
+\end{aligned}
+$$
+
+(b)
+$$
+\begin{aligned}
+	\oint \frac{e^{3z} \dd z}{z - \ln 2} &= 2\pi i \cdot Res(\frac{e^{3z}}{z-\ln 2}) \text{ at } \ln 2\\
+	&= 2\pi i e^{3\ln 2}\\
+	&= 16\pi i\\
+\end{aligned}
+$$
 
 \newpage
 
@@ -1461,6 +1423,30 @@ $$
 
 \textbf{Solution.}
 
+(a)
+$$
+\frac{e^z-1-z}{z^2} = \frac{1}{2} + \frac{z}{6} + \cdots
+$$
+It's a regular point.
+
+(b)
+$$
+\frac{\sin z}{z^3} = \frac{1}{z^2} + \frac{1}{6} + \frac{1}{125} z^2 \cdots
+$$
+It's a pole of order 2.
+
+(c)
+$$
+\frac{z^2-1}{(z-1)^2} = \frac{z+1}{z-1}
+$$
+It's a pole of order 1.
+
+(d)
+$$
+\frac{\cos z}{(z-\pi/2)^4} = \frac{-\sin(z-\frac{\pi}{2})}{(z-\pi/2)^4} \sim -\frac{1}{(z-\pi/2)^3}
+$$
+It's a pole of order 3.
+
 \newpage
 
 \begin{Problem}
@@ -1479,78 +1465,102 @@ $$
 
 \textbf{Solution.}
 
-\begin{comment}
+(a)
+Both poles are of order 1.
+$$
+R(z_0) = \lim_{z\to z_0} (z-b) f(z) \implies R(-\frac{2}{3}) = \frac{1}{3\cdots(2-z)} = \frac{1}{8} \quad R(2) = \frac{1}{-(3z+2)} = -\frac{1}{8}
+$$
 
-\newpage
+(b)
+Both poles are of order 1.
+$$
+R(z_0) = \lim_{z\to z_0} (z-b) f(z) \implies R(\frac{1}{2}) = \frac{5}{8} \quad R(-\frac{1}{2}) = -\frac{3}{8}
+$$
 
-\begin{Problem}
-	
-	
-	
-\end{Problem}
+(c)
+$$
+\frac{\cosh z-1}{z^7} \sim \frac{1}{2!} \frac{1}{z^5} + \frac{1}{4!} \frac{1}{z^3} + \frac{1}{6!} \frac{1}{z} + \frac{1}{8!} z + \cdots \implies R(0) = \frac{1}{720}
+$$
 
-\textbf{Solution.}
+(d)
+The function has a regular point at $z=0$ and a pole of order 2 at $z=2i$.
 
-\newpage
+Thus $R(0) = 0$.
 
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
-
-\newpage
-
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
-
-\newpage
-
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
-
-\newpage
-
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
-
-\newpage
-
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
-
-\newpage
-
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
+$$
+R(2i) = \lim_{z\to 2i} \frac{\dd}{\dd z} \bigg[ (z-2i)^2 \frac{e^{iz}}{(z^2+4)^2} \bigg] = -\frac{3e^{-2}i}{32}
+$$
 
 \end{comment}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
 
 \end{document}
