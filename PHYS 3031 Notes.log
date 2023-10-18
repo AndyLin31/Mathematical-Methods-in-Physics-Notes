@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  11 OCT 2023 13:12
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2023.2.14)  18 OCT 2023 18:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1315,7 +1315,7 @@ File: ./images//logo-hkust.png Graphic file (type bmp)
 File: ./images//logo-hkust.png Graphic file (type bmp)
 <./images//logo-hkust.png>
  [7]
-Overfull \hbox (14.1533pt too wide) in paragraph at lines 566--580
+Overfull \hbox (14.1533pt too wide) in paragraph at lines 600--614
  [][] 
  []
 
@@ -1337,4 +1337,4 @@ Here is how much of TeX's memory you used:
  1348 hyphenation exceptions out of 8191
  109i,18n,118p,628b,585s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on PHYS 3031 Notes.xdv (9 pages, 159704 bytes).
+Output written on PHYS 3031 Notes.xdv (9 pages, 165384 bytes).

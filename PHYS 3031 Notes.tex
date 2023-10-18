@@ -528,7 +528,41 @@ $$
 	\end{aligned}
 	$$
 	
+\textbf{Note:} This requires the integral around the infinite point to be exist, so that when the radius of the integral path $C_2 \rightarrow \infty$, the integral $\rightarrow 0$.
+
 \end{formal}
+
+\begin{formal}{Blue}{blueshade}
+	\textbf{Properties:}
+	
+	In general,
+	$$
+	\int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \dd x = 2 \pi i \sum_{i=1}^N R(z_n)
+	$$
+	where $P(x)$ and $Q(x)$ are polynomials and that \textbf{$Q(x)$ is at least two orders higher than $P(x)$, and have no real roots}.
+	
+	Such order difference is required because
+	$$
+	\int_{C_2} \frac{P(z)}{Q(z)} \dd z \text{ as $C_2 \to \infty$ requires } \lim_{\rho\to\infty} \frac{P(\rho e^{i\theta})}{Q(\rho e^{i\theta})} i\rho e^{i\theta} \sim \lim_{\rho\to\infty} \rho^{1-M} = 0 \implies M \geq 2
+	$$
+\end{formal}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \begin{comment}
 
