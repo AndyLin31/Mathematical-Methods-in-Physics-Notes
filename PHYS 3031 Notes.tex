@@ -351,7 +351,7 @@ $$
 \oint_C f(z) \dd z = 0
 $$
 
-\textbf{Two Foundation Lemmas - Small \& Big Arc Lemma}
+\textbf{Two Foundation Lemmas -} \href{https://en.wikipedia.org/wiki/Jordan%27s_lemma}{\textbf{Jordan's Lemma}}
 
 $\bullet$ Small Arc Lemma (小圆弧引理):
 
@@ -539,27 +539,85 @@ $$
 	$$
 	\int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \dd x = 2 \pi i \sum_{i=1}^N R(z_n)
 	$$
-	where $P(x)$ and $Q(x)$ are polynomials and that \textbf{$Q(x)$ is at least two orders higher than $P(x)$, and have no real roots}.
+	where $P(x)$ and $Q(x)$ are polynomials and that \textbf{$Q(x)$ is at least two orders higher than $P(x)$, and have no real roots} (i.e. No extra poles on the x-axis).
 	
 	Such order difference is required because
 	$$
-	\int_{C_2} \frac{P(z)}{Q(z)} \dd z \text{ as $C_2 \to \infty$ requires } \lim_{\rho\to\infty} \frac{P(\rho e^{i\theta})}{Q(\rho e^{i\theta})} i\rho e^{i\theta} \sim \lim_{\rho\to\infty} \rho^{1-M} = 0 \implies M \geq 2
+	\int_{C_2} \frac{P(z)}{Q(z)} \dd z \text{ as $C_2 \to \infty$ requires } \lim_{\rho\to\infty} \frac{P(\rho e^{i\theta})}{Q(\rho e^{i\theta})} i\rho e^{i\theta} \sim \lim_{\rho\to\infty} \rho^{1-M} = 0 \implies \text{Integer }M \geq 2
 	$$
 \end{formal}
 
+To deal with the poles on the x-axis when computing the (improper) integral over the real numbers, one can make use of the Jordan's Lemma (See Page 4) to compute the integral over a semi-circle to get the \textbf{Principal Value (PV)} at that point.
 
+\begin{formal}{Blue}{blueshade}
+	
+	\textbf{Properties for Poles on the Real Axis (Corollary of Jordan's Lemma):}
+	
+	\noindent Make substitutions: $z-z_0 = \rho e^{i\theta},\ \dd z = i\rho e^{i\theta} \dd \theta$
+	$$
+	PV(z_0) = \int_{C(z_0)} f(z) \dd z = \lim_{\rho\to 0} \int_{C_\rho(z_0)} f(z) \dd z = i \lim_{\rho\to 0} \int_{\theta_1}^{\theta_2} f(z_0+\rho e^{i\theta}) \rho e^{i\theta} \dd \theta
+	$$
+	Suppose $z_0$ is a pole of order 1 on the real axis. According to the Lauren Series:
+	$$
+	\begin{aligned}
+		&f(z) = \sum_{m=0}^\infty a_m (z-z_0)^m + \frac{b_1}{z-z_0}\\
+		&\implies \int_{C(z_0)} (z-z_0)^m \dd z = \lim_{\rho\to 0} \int_{C(z_0)} \rho^m e^{im\theta} i\rho e^{i\theta} \dd \theta = i \lim_{\rho\to 0} \int_{\theta_1}^{\theta_2} \rho^{m+1} e^{i(m+1)\theta} \dd \theta = 0\\
+		&\implies PV = i \lim_{\rho\to 0} \int_{\theta_1}^{\theta_2} f(z_0 + \rho e^{i\theta}) \rho e^{i\theta} \dd \theta = ib_1 \lim_{\rho\to 0} \int_{\theta_1}^{\theta_2} \frac{\rho e^{i\theta}}{\rho e^{i\theta}} \dd \theta = ib_1 (\theta_2 - \theta_1) = i(\theta_2-\theta_1) R(z_0)
+	\end{aligned}
+	$$
+	
+\end{formal}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.3\textwidth]{img3-5}
+\end{figure}
 
+\begin{formal}{Brown}{brownshade}
+	
+	\textbf{Example: PV of the Integeal of $\frac{1}{x}$}
 
+	\noindent In general,
+	$$
+	\int_{x_1}^{x_2} \frac{\dd x}{x} = \ln \bigg| \frac{x_2}{x_1} \bigg|
+	$$
+	where, when $x_1 < 0, x_2 > 0$,
+	$$
+	PV(\int_{x_1}^{x_2} \frac{\dd x}{x}) = \lim_{\epsilon\to 0} \bigg[ \int_{x_1}^{-\epsilon} \frac{\dd x}{x} + \int_{\epsilon}^{x_2} \frac{\dd x}{x} \bigg] = \lim_{\epsilon\to 0} \bigg[ \ln \bigg| \frac{-\epsilon}{x_1} \bigg| + \ln \bigg| \frac{x_2}{\epsilon} \bigg| \bigg] = \ln \bigg| \frac{x_2}{x_1} \bigg|
+	$$
 
+\end{formal}
 
+\subsubsection{Other Possible Integral Path}
 
+\begin{figure}[h]
+	\centering
+	\begin{subfigure}[b]{0.28\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img3-6}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.28\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img3-7}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.28\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img3-8}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.28\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img3-9}
+	\end{subfigure}
+	\begin{subfigure}[b]{0.28\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{img3-10}
+	\end{subfigure}
+	\caption{HKUST PHYS3031, 2023, Complex Analysis Page 93-97}
+\end{figure}
 
+\newpage
 
-
-
-
-
+\subsection{Argument (Phase) Principle}
 
 
 
@@ -640,8 +698,6 @@ $$
 \newpage
 
 \end{document}
-
-\begin{comment}
 
 \section*{Homework 1}
 
@@ -1525,9 +1581,180 @@ $$
 R(2i) = \lim_{z\to 2i} \frac{\dd}{\dd z} \bigg[ (z-2i)^2 \frac{e^{iz}}{(z^2+4)^2} \bigg] = -\frac{3e^{-2}i}{32}
 $$
 
-\end{comment}
+\newpage
+
+\section*{Homework 5}
+
+\begin{Problem}
+	
+	The values of the following integrals are known and can be found in integral tables or by computer. Your goal in evaluating them is to learn about contour integration by applying the methods discussed in the examples above. Then check your answers by computer.
+	
+	\noindent (a) $\int_0^\pi \frac{\dd \theta}{(2+\cos \theta)^2}$
+	
+	\noindent (b) $\int_0^{2\pi} \frac{\cos 2\theta \dd \theta}{5+4\cos \theta}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+(a) Let $z = e^{i\theta}$, then
+$$
+\sin\theta = \frac{z^2-1}{2iz} \quad \cos\theta = \frac{z^2+1}{2z} \quad \dd \theta = \frac{\dd z}{iz}
+$$
+Note that since $\cos \theta = \cos (-\theta)$,
+$$
+\implies \int_0^\pi \frac{\dd \theta}{(2+\cos \theta)^2} = \int_{-\pi}^0 \frac{\dd \theta}{(2+\cos \theta)^2} = \frac{1}{2} \int_{-\pi}^\pi \frac{\dd \theta}{(2+\cos \theta)^2}
+$$
+$$
+\int_{-\pi}^\pi \frac{\dd \theta}{(2+\cos \theta)^2} = \int_{\theta=-\pi}^\pi \frac{\frac{\dd z}{iz}}{(2+\frac{z^2+1}{2z})^2} = -i\int_{\text{unit circle around the origin}} \frac{4z\dd z}{(z^2+4z+1)^2} = -i \sum_{|z|<1} 2\pi i R(z)
+$$
+$4z/(z^2+4z+1)^2$ has poles at $z^2+4z+1=0 \implies z=-2\pm\sqrt{3}$ with orders of 2, with only $z=-2+\sqrt{3}$ is inside the unit circle
+$$
+\implies R(z=-2+\sqrt{3}) = \frac{\dd}{\dd z} \frac{4z\dd z}{(z^2+4z+1)^2} [z-(-2+\sqrt{3})]^2 \bigg|_{z=-2+\sqrt{3}} = \frac{\dd}{\dd z} \frac{4z\dd z}{[z-(-2-\sqrt{3})]^2} \bigg|_{z=-2+\sqrt{3}} = \frac{2}{3\sqrt{3}}
+$$
+$$
+\implies \int_{-\pi}^\pi \frac{\dd \theta}{(2+\cos \theta)^2} = -i \cdot 2\pi i \cdot \frac{2}{3\sqrt{3}} = \frac{4\pi}{3\sqrt{3}} \implies \int_0^\pi \frac{\dd \theta}{(2+\cos \theta)^2} = \frac{2\pi}{3\sqrt{3}}
+$$
+
+(b) Let $z = e^{i\theta}$, then
+$$
+\sin\theta = \frac{z^2-1}{2iz} \quad \cos\theta = \frac{z^2+1}{2z} \quad \dd \theta = \frac{\dd z}{iz} \quad \cos2\theta = 2\cos^2\theta-1 = \frac{z^4+1}{2z^2}
+$$
+$$
+\begin{aligned}
+	\implies \int_0^{2\pi} \frac{\cos 2\theta \dd \theta}{5+4\cos \theta} &= \int_0^{2\pi} \frac{\frac{z^4+1}{2z^2}}{5+4\frac{z^2+1}{2z}} = \int_{\theta=0}^{2\pi} \frac{z^4+1}{4z^3+10z^2+4z} \frac{\dd z}{iz}\\
+	&= -\frac{i}{2} \int_{\text{unit circle around the origin}} \frac{z^4+1}{2z^4+5z^3+2z^2} \dd z\\
+	&= -\frac{i}{2} \int_{\text{unit circle around the origin}} \frac{z^4+1}{2z^2(z+\frac{1}{2})(z+2)} \dd z
+\end{aligned}
+$$
+The poles $z=0$ and $z=-\frac{1}{2}$ are inside the unit circle with orders 2 and 1
+$$
+R(z=0) = \frac{\dd}{\dd z} \frac{z^4+1}{2(z+\frac{1}{2})(z+2)} \bigg|_{z=0} = -\frac{5}{4}
+$$
+$$
+R(z=-\frac{1}{2}) = \frac{z^4+1}{2z^2(z+2)} \bigg|_{z=-\frac{1}{2}} = \frac{17}{12}
+$$
+$$
+\implies \int_0^{2\pi} \frac{\cos 2\theta \dd \theta}{5+4\cos \theta} = -\frac{i}{2} 2\pi i (-\frac{5}{4}+\frac{17}{12}) = \frac{\pi}{6}
+$$
 
 \newpage
+
+\begin{Problem}
+	
+	Using the rule of Example 4 (also see problem 21), evaluate the following integrals. Find principal values if necessary.
+	
+	\noindent (a) $\int_{-\infty}^{\infty} \frac{\dd x}{(x-1)(x^2+1)}$
+	
+	\noindent (b) $\int_{-\infty}^{\infty} \frac{x\sin \pi x}{1-x^2} \dd x$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+(a)
+
+\newpage
+
+\begin{Problem}
+	
+	Use the method of Problem 30(c) to evaluate $\int_0^{\infty} \frac{\dd x}{1+x^6}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Evaluate the following integrals by the method of Example 5: $\int_0^{\infty} \frac{\sqrt{x} \dd x}{(1+x)^2}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.8\textwidth]{hw5-1}
+\end{figure}
+
+\textbf{Solution.}
+
+
+
+\newpage
+
+\begin{Problem}
+	
+	Use the recursion relation (3.4), and if needed, equation (3.2) to simplify: $\Gamma(4)\Gamma(3/4)/\Gamma(7/4)$
+	
+\end{Problem}
+
+\textbf{Solution.}
+$$
+\frac{\Gamma(4)\Gamma(3/4)}{\Gamma(7/4)} = \frac{24\Gamma(3/4)}{\frac{7}{4}\Gamma(3/4)} = \frac{96}{7}
+$$
+
+\begin{Problem}
+	
+	Express each of the following integrals as a  $\Gamma$ function. By computer, evaluate numerically both the $\Gamma$ function and the original integral.
+	
+	\noindent (a) $\int_0^\infty x^{-2/5} e^{-x} \dd x$
+	
+	\noindent (b) $\int_0^1 x^2 \big(\ln\frac{1}{x}\big)^3 \dd x$ Hint: Put $x=e^{-u}$.
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Use (5.4) to show that
+	
+	\noindent (a) $\Gamma(1/2-n)\Gamma(1/2+n)=(-1)^n \pi$ if $n$ is a positive integer.
+	
+	\noindent (b) $(z!)(-z)! = \pi z/\sin \pi z$, where $z$ is not necessarily an integer; see comment after equation (3.3).
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Express the following integrals as $\Beta$ functions, and then, by(7.1), in terms of $\Gamma$ functions. When possible, use $\Gamma$ function formulas to write an exact answer in terms of $\pi, \sqrt{2}$ etc. Compare your answers with computer results and reconcile any discrepancies.
+	
+	\noindent (a) $\int_0^1 \frac{x^4}{\sqrt{1-x^2}} \dd x$
+	
+	\noindent (b) $\int_0^{\pi/2} \frac{\dd \theta}{\sqrt{\theta}}$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+
+\begin{Problem}
+	
+	Prove $\Beta(n,n) = \Beta(n,\frac{1}{2})/2^{2n-1}$. Hint: In (6.4), use the identity $2\sin\theta\cos\theta = \sin 2\theta$ and put $2\theta = \phi$. Use this result and (5.3) to derive the duplication formula for $\Gamma$ functions:
+	$$
+	\Gamma(2n) = \frac{1}{\sqrt{\pi}} 2^{2n-1} \Gamma(n)\Gamma(n+\frac{1}{2})
+	$$
+	\noindent Check this formula for the case $n=\frac{1}{4}$ by using (5.4).
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
 
 \begin{Problem}
 	
@@ -1539,15 +1766,6 @@ $$
 
 \newpage
 
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
-
-\newpage
 
 \begin{Problem}
 	
@@ -1559,15 +1777,6 @@ $$
 
 \newpage
 
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
-
-\newpage
 
 \begin{Problem}
 	
@@ -1578,23 +1787,5 @@ $$
 \textbf{Solution.}
 
 \newpage
-
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
-
-\newpage
-
-\begin{Problem}
-	
-	
-	
-\end{Problem}
-
-\textbf{Solution.}
 
 \end{document}
