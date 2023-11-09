@@ -522,11 +522,11 @@ $$
 \begin{formal}{Brown}{brownshade}
 	
 	\textbf{Example:}
-	$$
+	\[
 	\begin{aligned}
 		\int_{-\infty}^{\infty} \frac{1}{1+x^2} \dd x &= \oint_{C_1+C_2} \frac{1}{1+z^2} \dd z = 2\pi i R(i) = \pi
 	\end{aligned}
-	$$
+	\]
 	
 \textbf{Note:} This requires the integral around the infinite point to be exist, so that when the radius of the integral path $C_2 \rightarrow \infty$, the integral $\rightarrow 0$.
 
@@ -536,15 +536,15 @@ $$
 	\textbf{Properties:}
 	
 	In general,
-	$$
+	\[
 	\int_{-\infty}^{\infty} \frac{P(x)}{Q(x)} \dd x = 2 \pi i \sum_{i=1}^N R(z_n)
-	$$
+	\]
 	where $P(x)$ and $Q(x)$ are polynomials and that \textbf{$Q(x)$ is at least two orders higher than $P(x)$, and have no real roots} (i.e. No extra poles on the x-axis).
 	
 	Such order difference is required because
-	$$
+	\[
 	\int_{C_2} \frac{P(z)}{Q(z)} \dd z \text{ as $C_2 \to \infty$ requires } \lim_{\rho\to\infty} \frac{P(\rho e^{i\theta})}{Q(\rho e^{i\theta})} i\rho e^{i\theta} \sim \lim_{\rho\to\infty} \rho^{1-M} = 0 \implies \text{Integer }M \geq 2
-	$$
+	\]
 \end{formal}
 
 To deal with the poles on the x-axis when computing the (improper) integral over the real numbers, one can make use of the Jordan's Lemma (See Page 4) to compute the integral over a semi-circle to get the \textbf{Principal Value (PV)} at that point.
@@ -554,17 +554,17 @@ To deal with the poles on the x-axis when computing the (improper) integral over
 	\textbf{Properties for Poles on the Real Axis (Corollary of Jordan's Lemma):}
 	
 	\noindent Make substitutions: $z-z_0 = \rho e^{i\theta},\ \dd z = i\rho e^{i\theta} \dd \theta$
-	$$
+	\[
 	PV(z_0) = \int_{C(z_0)} f(z) \dd z = \lim_{\rho\to 0} \int_{C_\rho(z_0)} f(z) \dd z = i \lim_{\rho\to 0} \int_{\theta_1}^{\theta_2} f(z_0+\rho e^{i\theta}) \rho e^{i\theta} \dd \theta
-	$$
+	\]
 	Suppose $z_0$ is a pole of order 1 on the real axis. According to the Lauren Series:
-	$$
+	\[
 	\begin{aligned}
 		&f(z) = \sum_{m=0}^\infty a_m (z-z_0)^m + \frac{b_1}{z-z_0}\\
 		&\implies \int_{C(z_0)} (z-z_0)^m \dd z = \lim_{\rho\to 0} \int_{C(z_0)} \rho^m e^{im\theta} i\rho e^{i\theta} \dd \theta = i \lim_{\rho\to 0} \int_{\theta_1}^{\theta_2} \rho^{m+1} e^{i(m+1)\theta} \dd \theta = 0\\
 		&\implies PV = i \lim_{\rho\to 0} \int_{\theta_1}^{\theta_2} f(z_0 + \rho e^{i\theta}) \rho e^{i\theta} \dd \theta = ib_1 \lim_{\rho\to 0} \int_{\theta_1}^{\theta_2} \frac{\rho e^{i\theta}}{\rho e^{i\theta}} \dd \theta = ib_1 (\theta_2 - \theta_1) = i(\theta_2-\theta_1) R(z_0)
 	\end{aligned}
-	$$
+	\]
 	
 \end{formal}
 
@@ -578,13 +578,13 @@ To deal with the poles on the x-axis when computing the (improper) integral over
 	\textbf{Example: PV of the Integeal of $\frac{1}{x}$}
 
 	\noindent In general,
-	$$
+	\[
 	\int_{x_1}^{x_2} \frac{\dd x}{x} = \ln \bigg| \frac{x_2}{x_1} \bigg|
-	$$
+	\]
 	where, when $x_1 < 0, x_2 > 0$,
-	$$
+	\[
 	PV(\int_{x_1}^{x_2} \frac{\dd x}{x}) = \lim_{\epsilon\to 0} \bigg[ \int_{x_1}^{-\epsilon} \frac{\dd x}{x} + \int_{\epsilon}^{x_2} \frac{\dd x}{x} \bigg] = \lim_{\epsilon\to 0} \bigg[ \ln \bigg| \frac{-\epsilon}{x_1} \bigg| + \ln \bigg| \frac{x_2}{\epsilon} \bigg| \bigg] = \ln \bigg| \frac{x_2}{x_1} \bigg|
-	$$
+	\]
 
 \end{formal}
 
@@ -619,31 +619,32 @@ To deal with the poles on the x-axis when computing the (improper) integral over
 
 \subsection{Argument (Phase) Principle}
 
+\begin{formal}{Blue}{blueshade}
+
+	\textbf{Theorem 1:}
+	
+	If $f(z)$ has a root $z_1$ of order $n_1$ within the contour $C$, then
+	\[
+	I = \oint_C \frac{f'(z)}{f(z)} \dd z = 2\pi i n_1
+	\]
+
+	Proof goes as $G(z) = \frac{\dd}{\dd z} \ln(f(z))$ has a pole of order 1 at $z_1$ with residue $n_1$.
+
+	\noindent \textbf{Theorem 2}
+
+	If $f(z)$ has a pole $z_1$ of order $p_1$ within the contour $C$, then
+	\[
+	I = \oint_C \frac{f'(z)}{f(z)} \dd z = -2\pi i p_1
+	\]
+
+	Proof goes according to the Lauren Series of $f(z)$.
+
+	\noindent \textbf{Corollary}
+
+	If $f(z)$ is analytic everywhere, for a very large contour $C$ that contains all roots,
 
 
-
-\begin{comment}
-
-\begin{center}
-	\begin{tikzpicture}
-		\draw[rotate=40](0,0)ellipse(2 and 1.2);
-		\path[red] (-1, -1) edge [bend left] (1.2,0.6);
-		\node at(1.2,0.6)[right]{\scriptsize\( \lambda \)};
-		\fill(-0.2,0.07)circle(1pt)node[below]{\scriptsize\( p \)};
-		\draw[-latex,thick](-0.2,0.07)--(0.7,0.8)node[left,xshift=-0.1cm]{\scriptsize\( X \)};
-		\node at(0,-1)[right]{\scriptsize\( M \)};
-	\end{tikzpicture}
-\end{center}
-
-\end{comment}
-
-
-
-
-
-
-
-
+\end{formal}
 
 
 
@@ -672,9 +673,9 @@ To deal with the poles on the x-axis when computing the (improper) integral over
 \caption{Explanation of Important Nouns}
 \end{table}
 
+\newpage
 
-
-
+\section{Special Functions}
 
 
 
@@ -697,7 +698,153 @@ To deal with the poles on the x-axis when computing the (improper) integral over
 
 \newpage
 
+\section{Partial Differential Equations}
+\subsection*{Typical Types of PDE}
+\[
+\begin{aligned}
+	&\text{Laplace Equation: } \nabla^2 T = \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} + \frac{\partial^2 T}{\partial z^2} = 0\\
+	&\text{Diffusion Equation: } \alpha^2 \nabla^2 u = \frac{\partial u}{\partial t}\\
+	&\text{Wave Equation: } \nabla^2 u = \frac{1}{v^2} \frac{\partial^2 u}{\partial t^2}\\
+\end{aligned}
+\]
+
+\subsection{2D Laplace Equation}
+\[
+\nabla^2 T = \frac{\partial^2 T}{\partial x^2} + \frac{\partial^2 T}{\partial y^2} = 0\\
+\]
+
+\subsubsection*{Case 1}
+\begin{wrapfigure}{r}{0.14\textwidth}
+	\centering
+	\includegraphics[width=0.14\textwidth]{img5-1}
+\end{wrapfigure}
+
+Seperation of variables: $T(x, y) = X(x)Y(y)$
+\[
+\implies \frac{1}{X} \frac{\dd^2 X}{\dd x^2} = -\frac{1}{Y} \frac{\dd^2 Y}{\dd y^2} = \lambda
+\]
+
+Raises two sets of solution for $\lambda > 0$ and $\lambda < 0$.
+
+For the given boundary condition, we have $\lambda = K^2 < 0$, then
+\[
+\begin{aligned}
+	&\frac{\dd^2 X}{\dd x^2} = -K^2 X \implies X(x) = A \cos Kx + B \sin Kx\\
+	&\frac{\dd^2 Y}{\dd y^2} = K^2 Y \implies Y(y) = C \cosh Ky + D \sinh Ky
+\end{aligned}
+\]
+
+With the boundary condition, the general solution is given by
+\[
+T(x,y) = \sum_{n=1}^\infty a_n T_n(x,y) = \sum_{n=1}^\infty a_n \sin \frac{n\pi x}{L_x} e^{-\frac{n\pi y}{L_x}}
+\]
+
+Compare with te remaining boundary condition
+\[
+\begin{aligned}
+&T(x,0) = f(x) = \sum_{n=1}^\infty a_n \sin \frac{n\pi x}{L_x}\\
+\implies &a_n = \frac{2}{L_x} \int_0^{L_x} f(x) \sin \frac{n\pi x}{L_x} \dd x = \frac{2}{L_x} \langle f(x), \sin \frac{n\pi x}{L_x} \rangle
+\end{aligned}
+\]
+
+For constant function $f(x) = C$,
+\[
+a_n = \frac{4C}{n\pi} \text{ for odd $m$, 0 otherwise}
+\]
+
+\newpage
+
+\subsubsection*{Case 2}
+\begin{wrapfigure}{r}{0.14\textwidth}
+	\centering
+	\includegraphics[width=0.14\textwidth]{img5-2}
+\end{wrapfigure}
+
+This also requires $x$-direction to be sinusoidal, and $y$-direction to be exponential.
+\[
+\begin{aligned}
+	&T(x,y) = \sum_{n=1}^\infty a_n T_n(x,y) = \sum_{n=1}^\infty a_n \sin K_n x \sinh [K_n(L_y-y)]\\
+	&\text{with } a_n = \frac{2}{L_x \sinh (K_n L_y)} \int_0^{L_x} f(x) \sin K_n x \dd x
+\end{aligned}
+\]
+
+\subsubsection*{Linearity of the Solution}
+If $T_1(x,y)$ and $T_2(x,y)$ are solutions to the Laplace equation, then $T(x,y) = aT_1(x,y) + bT_2(x,y)$ is also a solution.
+
+\subsubsection*{Uniqueness Theorem}
+Because of the orthogonality of the eigenfunctions $\sin(K_n x)$, if two functions $T_1$ and $T_2$ both satisfies the Laplace equation and the boundary condition,
+then the difference of these two functions raise $a_n \equiv 0 \implies T_1 = T_2$. Thus, the solution to the Laplace equation is unique.
+
+\subsubsection*{Case 3}
+\begin{wrapfigure}{r}{0.14\textwidth}
+	\centering
+	\includegraphics[width=0.14\textwidth]{img5-3}
+\end{wrapfigure}
+
+$\bar{0}$ refers to the boundary condition of $\partial_x T = 0$
+\[
+\begin{cases}
+	X(x) = A \sin Kx + B \cos Kx \text{ with $X'(x) = 0$ at boundaries } \implies K_n = \frac{n\pi}{L_x}\\
+	Y(y) = C e^{Ky} + D e^{-Ky} \text{ with finite value at $y\to\infty$ } \implies Y_n = e^{-K_n y}
+\end{cases}
+\]
+
+For $K=0$, $T(x,y) = A_0 + A_1 x + A_2 y + A_3 xy$ with boundary consitions $\implies A_1 = A_2 = A_3 = 0$
+\[
+\implies T(x,y) = A_0 + \sum_{n=1}^\infty B_n e^{-K_n y} \cos(K_n x)
+\]
+
+Applying Fourier Transformation,
+\[
+T(x,y) = \frac{L_x}{2} - \frac{4L_x}{\pi^2} \sum_{n=0}^\infty \frac{1}{(2n+1)^2} e^{-K_{2n+1}y} \cos(K_{2n+1}x)
+\]
+
+\begin{formal}{Blue}{blueshade}
+	\textbf{Usefal Integrals:}
+	\[
+	\begin{aligned}
+		&\int_0^{L_x} x\cos(K_n x) \dd x = -\frac{2}{K_n^2} = -\frac{2L_x^2}{n^2\pi^2}\\
+		&\int_0^{L_x} x\sin(K_n x) \dd x = \frac{(-1)^{n+1} L_x^2}{n\pi}
+	\end{aligned}
+	\]
+\end{formal}
+
+
+
+
+
+
+
+
+\begin{comment}
+	
+	\begin{center}
+		\begin{tikzpicture}
+			\draw[rotate=40](0,0)ellipse(2 and 1.2);
+			\path[red] (-1, -1) edge [bend left] (1.2,0.6);
+			\node at(1.2,0.6)[right]{\scriptsize\( \lambda \)};
+			\fill(-0.2,0.07)circle(1pt)node[below]{\scriptsize\( p \)};
+			\draw[-latex,thick](-0.2,0.07)--(0.7,0.8)node[left,xshift=-0.1cm]{\scriptsize\( X \)};
+			\node at(0,-1)[right]{\scriptsize\( M \)};
+		\end{tikzpicture}
+	\end{center}
+
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=0.5\textwidth]{img}
+	\end{figure}
+
+	\begin{wrapfigure}{r}{0.14\textwidth}
+		\centering
+		\includegraphics[width=0.14\textwidth]{img}
+	\end{wrapfigure}
+		
+\end{comment}
+
+\newpage
+
 \end{document}
+\begin{comment}
 
 \section*{Homework 1}
 
@@ -1695,7 +1842,7 @@ $$
 
 \textbf{Solution.}
 $$
-\frac{\Gamma(4)\Gamma(3/4)}{\Gamma(7/4)} = \frac{24\Gamma(3/4)}{\frac{7}{4}\Gamma(3/4)} = \frac{96}{7}
+\frac{\Gamma(4)\Gamma(3/4)}{\Gamma(7/4)} = \frac{6\Gamma(3/4)}{\frac{3}{4}\Gamma(3/4)} = 8
 $$
 
 \begin{Problem}
@@ -1710,7 +1857,18 @@ $$
 
 \textbf{Solution.}
 
-\newpage
+(a)
+$$
+\int_0^\infty x^{-2/5} e^{-x} \dd x = \int_0^\infty x^{3/5-1} e^{-x} \dd x = \Gamma(3/5)
+$$
+
+(b) Let $x = e^{-u}$, then
+$$
+\begin{aligned}
+	\int_0^1 x^2 \bigg(\ln\frac{1}{x}\bigg)^3 \dd x &= \int_0^1 e^{-2u} \bigg(\ln\frac{1}{e^{-u}}\bigg)^3 \dd e^{-u} = \int_0^\infty u^3 e^{-3u} \dd u\\
+	&= \frac{1}{81} \int_0^\infty (3u)^3 e^{-3u} \dd(3u) = \frac{1}{81} \int_0^\infty u^3 e^{-u} \dd u = \frac{\Gamma(4)}{81} = \frac{2}{27}
+\end{aligned}
+$$
 
 \begin{Problem}
 	
@@ -1723,6 +1881,16 @@ $$
 \end{Problem}
 
 \textbf{Solution.}
+
+(a) (5.4) $\implies \Gamma(p)\Gamma(1-p) = \frac{\pi}{\sin \pi p}$
+$$
+\implies \Gamma(1/2-n)\Gamma(1/2+n) = \frac{\pi}{\sin \pi (1/2-n)} = \frac{\pi}{\sin(\pi/2 - n\pi)} = \frac{\pi}{\cos n\pi} = (-1)^n \pi \text{ for positive integer $n$.}
+$$
+
+(b)
+$$
+(z!)(-z)! = \Gamma(z+1)\Gamma(-z+1) = z\Gamma(z)\Gamma(1-z) = \frac{\pi z}{\sin \pi z}
+$$
 
 \newpage
 
@@ -1738,8 +1906,20 @@ $$
 
 \textbf{Solution.}
 
-\newpage
+(a)
+$$
+\int_0^1 \frac{x^4}{\sqrt{1-x^2}} \dd x = \frac{1}{2} \int_0^1 \frac{x^3}{\sqrt{1-x^2}} \dd x^2 = \frac{1}{2} \int_0^1 x^{3/2}(1-x)^{-1/2} \dd x = \frac{1}{2} \Beta(\frac{5}{2},\frac{1}{2}) \text{ with $a=1$.}
+$$
+$$
+\implies \int_0^1 \frac{x^4}{\sqrt{1-x^2}} \dd x = \frac{1}{2} B(\frac{5}{2},\frac{1}{2}) = \frac{1}{2} \frac{\Gamma(\frac{5}{2})\Gamma(\frac{1}{2})}{\Gamma(3)} = \frac{3\pi}{16}
+$$
 
+(b)
+$$
+\int_0^{\pi/2} \frac{\dd \theta}{\sqrt{\theta}} = \frac{1}{2} 2 \int_0^{\frac{\pi}{2}} (\sin\theta)^{2p-1} (\cos\theta)^{2q-1} \dd\theta = \frac{1}{2} \Beta(\frac{1}{4},\frac{1}{2}) = \frac{1}{2} \frac{\Gamma(\frac{1}{4})\Gamma(\frac{1}{2})}{\Gamma(\frac{3}{4})} = \frac{\sqrt{\pi}\Gamma(\frac{1}{4})}{2\Gamma(\frac{3}{4})}
+$$
+
+\newpage
 
 \begin{Problem}
 	
@@ -1752,9 +1932,79 @@ $$
 \end{Problem}
 
 \textbf{Solution.}
+$$
+\begin{aligned}
+	\Beta(n,n) &= 2 \int_0^{\frac{\pi}{2}} (\sin\theta)^{2n-1} (\cos\theta)^{2n-1} = \frac{1}{2^{2n-1}} \int_0^{\frac{\pi}{2}} (\sin 2\theta)^{2n-1} \dd\theta = \frac{1}{2^{2n-1}} \int_0^{\pi} (\sin \phi)^{2n-1} \dd\phi\\
+	&= \frac{1}{2^{2n-1}} \int_0^{\frac{\pi}{2}} (\sin \phi)^{2n-1} \dd\phi + \frac{1}{2^{2n-1}} \int_0^{\frac{\pi}{2}} (\cos \phi)^{2n-1} \dd\phi = \frac{1}{2^{2n-1}} \bigg[\frac{1}{2} \Beta(n,\frac{1}{2}) + \frac{1}{2} \Beta(\frac{1}{2},n)\bigg] = \frac{\Beta(n,\frac{1}{2})}{2^{2n-1}}
+\end{aligned}
+$$
+
+Alternatively,
+$$
+\frac{\Gamma(n)^2}{\Gamma(2n)} = \Beta(n,n) = \frac{\Beta(n,\frac{1}{2})}{2^{2n-1}} = \frac{\Gamma(n)\Gamma(\frac{1}{2})}{2^{2n-1}\Gamma(n+\frac{1}{2})}
+$$
+$$
+\implies \Gamma(2n) = \frac{1}{\sqrt{\pi}} 2^{2n-1} \Gamma(n)\Gamma(n+\frac{1}{2})
+$$
 
 \newpage
 
+\begin{Problem}
+	
+	Solve the semi-infinite plate problem if the bottom edge of width 20 is held at
+	\[
+	T = \left\{
+	\begin{array}{ll}
+		0^o, & 0 < x < 10,\\
+		100^o, & 10 < x < 20,
+	\end{array}
+	\right.
+	\]
+	 and the other sides are at $0^o$.
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Find the steady-state temperature distribution in a metal plate 10 cm square if one side is held at $100^o$ and the other three sides at $0^o$. Find the temperature at the center of the plate.
+	
+	\noindent Answer:
+	$$
+	T = \sum_{\text{odd }n} \frac{400}{n\pi\sinh n\pi} \sinh\frac{n\pi}{10}(10-y) \sin\frac{n\pi x}{10}
+	$$
+	$$
+	T(5,5) \simeq 25^o
+	$$
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Find the steady-state temperature distribution in the plate of Problem 10 if two adjacent sides are at $100^o$ and the other two at $0^o$. Hint: Use your solution of Problem 10. You should not have to do any calculation-just write down the answer!
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	Find the temperature distribution in a rectangular plate 10 cm by 30 cm if two adjacent sides are held at $100^o$ and the other two sides at $0^o$.
+	
+\end{Problem}
+
+\textbf{Solution.}
+\end{comment}
+\newpage
 
 \begin{Problem}
 	
@@ -1766,6 +2016,15 @@ $$
 
 \newpage
 
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
 
 \begin{Problem}
 	
@@ -1777,6 +2036,45 @@ $$
 
 \newpage
 
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
+
+\begin{Problem}
+	
+	
+	
+\end{Problem}
+
+\textbf{Solution.}
+
+\newpage
 
 \begin{Problem}
 	
